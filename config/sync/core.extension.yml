@@ -55,7 +55,6 @@ module:
   contact: 0
   contextual: 0
   core_views_facets: 0
-  custom_profiles: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
