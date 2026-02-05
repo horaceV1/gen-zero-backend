@@ -1,0 +1,10 @@
+uuid: e3b7260b-0032-495c-b2e4-d44b8c294da0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: quEdz9yoJaOPjMfWqL5nWXdR-0oxuR_ierAhmuBd-1E
+id: cklb_button
+label: Button
+revision: 0
+description: 'Simple Call to Action Button block'

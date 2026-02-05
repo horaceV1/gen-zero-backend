@@ -1,0 +1,18 @@
+uuid: 91cf5496-991c-489f-b7f4-7a7214c3cebf
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.show_model
+field_name: show_model
+entity_type: commerce_product
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

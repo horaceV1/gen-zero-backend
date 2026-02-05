@@ -1,0 +1,32 @@
+uuid: a8f57e94-8c74-4bf6-9273-9473e0005a39
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.models.media_protected_file
+    - media.type.models
+  module:
+    - protected_file
+id: media.models.default
+targetEntityType: media
+bundle: models
+mode: default
+content:
+  media_protected_file:
+    type: protected_file_formatter
+    label: visually_hidden
+    settings:
+      protected_file_new_window: true
+      protected_file_path: /user/login
+      redirect_to_file: false
+      protected_file_modal: false
+      protected_file_message: 'You need to be logged in to be able to download this file'
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

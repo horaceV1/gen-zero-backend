@@ -1,0 +1,12 @@
+uuid: 2375ccda-cc12-4c3b-aa4d-4769d16988ab
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: hTtXtpqIBr-_HZSAKxolH_QAufMqGW9c-o19Za-G7XI
+id: default
+label: Default
+traits: {  }
+profileType: shipping
+sendConfirmation: true
+confirmationBcc: null

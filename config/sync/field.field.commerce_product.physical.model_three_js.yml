@@ -1,0 +1,50 @@
+uuid: b317c63d-8cb9-461c-89ba-3889d6014b02
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.physical
+    - field.storage.commerce_product.model_three_js
+  module:
+    - threejs_fields
+id: commerce_product.physical.model_three_js
+field_name: model_three_js
+entity_type: commerce_product
+bundle: physical
+label: 'model three js'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'obj dae glb gltf stl pdb 3dm 3mf amf bvh dds drc exr fbx ifc hdr gcode kmz ktx ktx2 lwo md2 mdd mmd mtl mpd nrrd pcd ply prwm pvr rgbe rgbm svg tds tga tif tiff ttf tilt vox vrm vtk xyz usdz'
+  max_filesize: ''
+  title_field: false
+  title_field_required: false
+  default_canvas:
+    uuid: ''
+    title: ''
+    options:
+      rotation:
+        x: '0.01'
+        'y': '0.1'
+      camera:
+        position:
+          x: ''
+          'y': ''
+          z: ''
+        controls:
+          orbit: orbit
+          fly: 0
+          device_orientation: 0
+          drag: 0
+          editor: 0
+          first_person: 0
+          pointer_lock: 0
+          trackball: 0
+          transform: 0
+field_type: threejs_file

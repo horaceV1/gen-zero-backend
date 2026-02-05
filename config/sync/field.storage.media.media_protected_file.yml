@@ -1,0 +1,24 @@
+uuid: e243ac87-9c86-4da9-8fba-2809584ed326
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - media
+    - protected_file
+id: media.media_protected_file
+field_name: media_protected_file
+entity_type: media
+type: protected_file
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: private
+module: protected_file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

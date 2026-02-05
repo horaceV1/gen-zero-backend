@@ -1,0 +1,21 @@
+uuid: e617b534-abe3-4516-be83-7ed1a36c7192
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce
+    - commerce_product
+_core:
+  default_config_hash: mMIueOfzqP8QlirSnVqlOxSPibB21dcnlSgBTnACMtI
+id: commerce_product_variation.license_expiration
+field_name: license_expiration
+entity_type: commerce_product_variation
+type: 'commerce_plugin_item:commerce_license_period'
+settings: {  }
+module: commerce
+locked: true
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

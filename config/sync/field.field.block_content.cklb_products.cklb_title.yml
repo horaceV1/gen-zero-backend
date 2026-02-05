@@ -1,0 +1,21 @@
+uuid: f69d7428-ac57-4e51-9312-075700f5ec65
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cklb_products
+    - field.storage.block_content.cklb_title
+_core:
+  default_config_hash: zHruqTfiIOEzgHLFJm0Ai_yzpXX456uKT2xYxas8Ud4
+id: block_content.cklb_products.cklb_title
+field_name: cklb_title
+entity_type: block_content
+bundle: cklb_products
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,17 @@
+uuid: 905c49b3-8f64-4bc0-a729-cc844f46380a
+langcode: en
+status: true
+dependencies: {  }
+third_party_settings:
+  commerce_order:
+    customer_profile_type: true
+_core:
+  default_config_hash: i3U6f0NiYj_fATdwBbzmjRlBWlFSrV9oxZjLwud3zAo
+id: shipping
+label: Shipping
+display_label: ''
+multiple: true
+registration: false
+roles: {  }
+allow_revisions: false
+new_revision: false

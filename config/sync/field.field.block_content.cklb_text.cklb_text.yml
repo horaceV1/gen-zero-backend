@@ -1,0 +1,24 @@
+uuid: d6504507-30d8-4c9b-9e20-4c1eb1555941
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cklb_text
+    - field.storage.block_content.cklb_text
+  module:
+    - text
+_core:
+  default_config_hash: OFzRXhgAPFlQ9w18Lmr1u-TgVwwejqiG3iKCC5boeBQ
+id: block_content.cklb_text.cklb_text
+field_name: cklb_text
+entity_type: block_content
+bundle: cklb_text
+label: Text
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

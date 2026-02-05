@@ -1,0 +1,13 @@
+uuid: 87bb29f4-736c-478f-b8f0-217b184df380
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: hzMB_TBUTdyU0dRbhc4C83IN69qKQCK4Lbc_N1Zkho4
+id: node.featured_teaser
+label: 'Featured Teaser'
+description: ''
+targetEntityType: node
+cache: true

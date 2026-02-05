@@ -1,0 +1,15 @@
+uuid: de3eee43-44ab-4f8e-9677-4ed07ad6ac42
+langcode: en
+status: true
+dependencies:
+  module:
+    - protected_file
+id: models
+label: models
+description: ''
+source: protected_file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: media_protected_file
+field_map: {  }

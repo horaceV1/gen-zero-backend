@@ -1,0 +1,23 @@
+uuid: 8b4ed910-5ab9-4a8e-8f8a-5ea53cfb1499
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.physical
+    - field.storage.commerce_product.show_model
+id: commerce_product.physical.show_model
+field_name: show_model
+entity_type: commerce_product
+bundle: physical
+label: 'Show Model'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

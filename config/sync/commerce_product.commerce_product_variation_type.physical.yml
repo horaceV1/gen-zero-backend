@@ -1,0 +1,13 @@
+uuid: e7113065-3bd0-4a88-929e-fa2a74462493
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: bdWN0bTEbHmonSaxYn47TLe1snVQ1cUirlDXH3Yb-jw
+id: physical
+label: Physical
+orderItemType: physical_product
+generateTitle: true
+traits:
+  - purchasable_entity_shippable
+locked: false

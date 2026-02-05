@@ -1,0 +1,27 @@
+uuid: 0ba8d7c0-5759-4614-833b-3690a3c8bcae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.media_protected_file
+    - media.type.models
+  module:
+    - protected_file
+id: media.models.media_protected_file
+field_name: media_protected_file
+entity_type: media
+bundle: models
+label: 'Protected File'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: glb
+  max_filesize: ''
+  description_field: false
+field_type: protected_file

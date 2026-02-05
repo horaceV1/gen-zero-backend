@@ -1,0 +1,166 @@
+uuid: 6e8817e6-8255-4e97-bdc8-2cda3965addf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.commerce_product.body
+    - field.storage.commerce_product.product_brand
+    - field.storage.commerce_product.product_collections
+    - search_api.server.database
+  module:
+    - commerce_product
+    - taxonomy
+_core:
+  default_config_hash: 4Voe7XEClIjhAslEyLOv-bJ5r_039SWkeuc78TPibMQ
+id: products
+name: Products
+description: ''
+read_only: false
+field_settings:
+  body:
+    label: Body
+    datasource_id: 'entity:commerce_product'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.commerce_product.body
+  created:
+    label: Created
+    datasource_id: 'entity:commerce_product'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - commerce_product
+  name:
+    label: Name
+    datasource_id: 'entity:taxonomy_term'
+    property_path: name
+    type: string
+    dependencies:
+      module:
+        - taxonomy
+  price:
+    label: 'Default variation » Price » Number'
+    datasource_id: 'entity:commerce_product'
+    property_path: 'default_variation:entity:price:number'
+    type: decimal
+    dependencies:
+      module:
+        - commerce_product
+  product_brand:
+    label: 'Product Brand'
+    datasource_id: 'entity:commerce_product'
+    property_path: product_brand
+    type: integer
+    dependencies:
+      config:
+        - field.storage.commerce_product.product_brand
+  product_collections:
+    label: 'Product Collections'
+    datasource_id: 'entity:commerce_product'
+    property_path: product_collections
+    type: integer
+    dependencies:
+      config:
+        - field.storage.commerce_product.product_collections
+  tid:
+    label: 'Term ID'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: tid
+    type: integer
+    dependencies:
+      module:
+        - taxonomy
+  title:
+    label: Title
+    datasource_id: 'entity:commerce_product'
+    property_path: title
+    type: text
+    boost: 5.0
+    dependencies:
+      module:
+        - commerce_product
+  uuid:
+    label: UUID
+    datasource_id: 'entity:taxonomy_term'
+    property_path: uuid
+    type: string
+    dependencies:
+      module:
+        - taxonomy
+datasource_settings:
+  'entity:commerce_product':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:taxonomy_term':
+    bundles:
+      default: false
+      selected:
+        - product_brands
+        - product_collections
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  custom_value: {  }
+  entity_type: {  }
+  ignore_character:
+    weights:
+      preprocess_index: -10
+      preprocess_query: -10
+    all_fields: true
+    fields:
+      - body
+      - name
+      - title
+      - uuid
+    ignorable: "['¿¡!?,.:;]"
+    ignorable_classes:
+      - Pc
+      - Pd
+      - Pe
+      - Pf
+      - Pi
+      - Po
+      - Ps
+  ignorecase:
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+    all_fields: true
+    fields:
+      - body
+      - name
+      - title
+      - uuid
+  language_with_fallback: {  }
+  rendered_item: {  }
+  tokenizer:
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+    all_fields: true
+    fields:
+      - body
+      - title
+    spaces: ''
+    ignored: ._-
+    overlap_cjk: 1
+    minimum_word_size: '3'
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  delete_on_fail: true
+  index_directly: true
+  track_changes_in_references: true
+server: database

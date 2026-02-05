@@ -1,0 +1,24 @@
+uuid: b72e4d17-ac1c-4f1f-8781-dfce2ea95afb
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - file
+    - threejs_fields
+id: commerce_product.model_three_js
+field_name: model_three_js
+entity_type: commerce_product
+type: threejs_file
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: private
+module: threejs_fields
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

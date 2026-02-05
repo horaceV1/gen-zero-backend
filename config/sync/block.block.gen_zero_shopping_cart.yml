@@ -1,0 +1,30 @@
+uuid: 639aa88b-557c-4609-abf8-951954a0846c
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_cart
+    - system
+  theme:
+    - gen_zero
+_core:
+  default_config_hash: PwsfSEm0cErm7FtmfF-BmjklpBemB2ID0k69y09XDms
+id: gen_zero_shopping_cart
+theme: gen_zero
+region: header
+weight: -10
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: 'Shopping Cart'
+  label_display: '0'
+  provider: commerce_cart
+  dropdown: true
+  show_if_empty: true
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: /cart

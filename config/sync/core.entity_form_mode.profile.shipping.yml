@@ -1,0 +1,16 @@
+uuid: a3352055-358f-4cb0-8a6a-71f977308ad3
+langcode: en
+status: true
+dependencies:
+  module:
+    - profile
+  enforced:
+    module:
+      - commerce_shipping
+_core:
+  default_config_hash: yHii5gYzU3AsU6VP0h0HLeGnsXIPerZe1CmvLZToIyw
+id: profile.shipping
+label: Shipping
+description: null
+targetEntityType: profile
+cache: true
