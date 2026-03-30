@@ -1,0 +1,20 @@
+uuid: 386d940f-3e02-4e90-b1f4-b40c96d93a5f
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - taxonomy
+id: commerce_product.ecosystem
+field_name: ecosystem
+entity_type: commerce_product
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

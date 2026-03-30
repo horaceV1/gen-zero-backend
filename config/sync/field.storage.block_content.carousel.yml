@@ -1,0 +1,20 @@
+uuid: 36fb1a49-7274-4bab-9034-e002ce4c5a80
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - media
+id: block_content.carousel
+field_name: carousel
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

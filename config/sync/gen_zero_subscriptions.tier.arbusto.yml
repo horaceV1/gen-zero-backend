@@ -1,0 +1,17 @@
+uuid: 4cc6fc26-83d4-4e05-aea7-79d37904b7a7
+langcode: en
+status: true
+dependencies: {  }
+id: arbusto
+label: Arbusto
+group: geracao_sustentavel
+price: '10'
+currency: EUR
+billing_period: monthly
+description: 'Plantando um a um, faremos um belo parque.'
+benefits:
+  - 'beneficio 1'
+  - 'beneficio 2'
+badge_label: Arbusto
+product_variation_id: 54
+weight: 1

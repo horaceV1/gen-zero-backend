@@ -1,0 +1,124 @@
+<?php
+
+/**
+ * @file
+ * Gen Zero Subscriptions module hooks.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function gen_zero_subscriptions_theme(): array {
+  return [
+    'gen_zero_subscription_tiers_block' => [
+      'variables' => [
+        'groups' => [],
+        'cancel_base_url' => '',
+      ],
+    ],
+    'block_content__subscription_tiers' => [
+      'base hook' => 'block_content',
+    ],
+  ];
+}
+
+/**
+ * Allowed values callback for the subscription_tier_group field.
+ *
+ * @param \Drupal\Core\Field\FieldStorageDefinitionInterface $definition
+ *   The field storage definition.
+ * @param \Drupal\Core\Entity\EntityInterface|null $entity
+ *   The entity being created or edited.
+ * @param bool &$cacheable
+ *   Whether the options are cacheable.
+ *
+ * @return array
+ *   An array of allowed values keyed by machine name.
+ */
+function gen_zero_subscriptions_tier_group_allowed_values(FieldStorageDefinitionInterface $definition, ?EntityInterface $entity = NULL, bool &$cacheable = TRUE): array {
+  $cacheable = FALSE;
+  $options = ['' => t('— All groups —')];
+  $groups = \Drupal::entityTypeManager()
+    ->getStorage('subscription_tier_group')
+    ->loadMultiple();
+  uasort($groups, fn($a, $b) => $a->getWeight() <=> $b->getWeight());
+  foreach ($groups as $group) {
+    if ($group->status()) {
+      $options[$group->id()] = $group->label();
+    }
+  }
+  return $options;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view() for block_content.
+ */
+function gen_zero_subscriptions_block_content_view(array &$build, EntityInterface $entity, $display, $view_mode): void {
+  if ($entity->bundle() !== 'subscription_tiers') {
+    return;
+  }
+
+  $group_id = '';
+  if ($entity->hasField('subscription_tier_group') && !$entity->get('subscription_tier_group')->isEmpty()) {
+    $group_id = $entity->get('subscription_tier_group')->value;
+  }
+
+  /** @var \Drupal\gen_zero_subscriptions\SubscriptionManager $manager */
+  $manager = \Drupal::service('gen_zero_subscriptions.subscription_manager');
+
+  if ($group_id) {
+    $groups = [
+      [
+        'id' => $group_id,
+        'tiers' => $manager->getTiersByGroup($group_id),
+      ],
+    ];
+    // Enrich with group label/description.
+    $group_entity = \Drupal::entityTypeManager()
+      ->getStorage('subscription_tier_group')
+      ->load($group_id);
+    if ($group_entity) {
+      $groups[0]['label'] = $group_entity->label();
+      $groups[0]['description'] = $group_entity->getDescription();
+    }
+  }
+  else {
+    $groups = $manager->getGroupedTiers();
+  }
+
+  // Enrich tiers with current user's subscription status.
+  $current_user = \Drupal::currentUser();
+  $uid = (int) $current_user->id();
+  if ($uid > 0) {
+    $user_subscriptions = $manager->getUserSubscriptions($uid, 'active');
+    $subscribed_tiers = [];
+    foreach ($user_subscriptions as $sub) {
+      $subscribed_tiers[$sub['tier_id']] = $sub['id'];
+    }
+    foreach ($groups as &$group) {
+      foreach ($group['tiers'] as &$tier) {
+        $tier['is_subscribed'] = isset($subscribed_tiers[$tier['id']]);
+        $tier['user_subscription_id'] = $subscribed_tiers[$tier['id']] ?? NULL;
+      }
+    }
+    unset($group, $tier);
+  }
+
+  $build['subscription_tiers'] = [
+    '#theme' => 'gen_zero_subscription_tiers_block',
+    '#groups' => $groups,
+    '#cancel_base_url' => '/api/subscriptions',
+    '#weight' => 100,
+    '#attached' => [
+      'library' => ['gen_zero_subscriptions/subscription_tiers_block'],
+    ],
+  ];
+
+  $build['#cache']['tags'][] = 'config:gen_zero_subscriptions.tier_group';
+  $build['#cache']['tags'][] = 'config:gen_zero_subscriptions.tier';
+  // Vary by user so subscription status is correct.
+  $build['#cache']['contexts'][] = 'user';
+}

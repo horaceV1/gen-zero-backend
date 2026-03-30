@@ -1,0 +1,21 @@
+uuid: cf21e50b-3d26-43a4-a451-d3da94c123a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.cor
+    - taxonomy.vocabulary.origem
+  module:
+    - options
+id: taxonomy_term.origem.cor
+field_name: cor
+entity_type: taxonomy_term
+bundle: origem
+label: Cor
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,21 @@
+uuid: 12e27184-57bc-41b1-98ba-8a3bcad1ffa1
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.donation
+    - field.storage.commerce_order_item.field_card_email
+_core:
+  default_config_hash: BoXl0BeiKTP0UQoSTCLbrrc65aoQgnyTcmu7SoEHam8
+id: commerce_order_item.donation.field_card_email
+field_name: field_card_email
+entity_type: commerce_order_item
+bundle: donation
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

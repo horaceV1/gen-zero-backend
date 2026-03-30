@@ -1,0 +1,34 @@
+gen_zero_subscriptions.admin:
+  title: 'Subscriptions'
+  description: 'Manage subscription tiers and tier groups.'
+  parent: commerce.admin_commerce
+  route_name: entity.subscription_tier_group.collection
+  weight: 20
+
+gen_zero_subscriptions.tier_groups:
+  title: 'Tier Groups'
+  description: 'Manage subscription tier groups.'
+  parent: gen_zero_subscriptions.admin
+  route_name: entity.subscription_tier_group.collection
+  weight: 0
+
+gen_zero_subscriptions.tiers:
+  title: 'Tiers'
+  description: 'Manage subscription tiers.'
+  parent: gen_zero_subscriptions.admin
+  route_name: entity.subscription_tier.collection
+  weight: 1
+
+gen_zero_subscriptions.user_subscriptions:
+  title: 'User Subscriptions'
+  description: 'View and manage active user subscriptions.'
+  parent: gen_zero_subscriptions.admin
+  route_name: entity.user_subscription.collection
+  weight: 2
+
+gen_zero_subscriptions.gateway_settings:
+  title: 'Gateway Settings'
+  description: 'Configure PayPal, EuPago, and other payment gateway API keys.'
+  parent: gen_zero_subscriptions.admin
+  route_name: gen_zero_subscriptions.gateway_settings
+  weight: 3

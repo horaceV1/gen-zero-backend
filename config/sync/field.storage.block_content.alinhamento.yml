@@ -1,0 +1,30 @@
+uuid: a6c525bf-3ebe-481d-a96b-5565a673660b
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.alinhamento
+field_name: alinhamento
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: left
+      label: Esquerda
+    -
+      value: right
+      label: Direita
+    -
+      value: Centro
+      label: Centro
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

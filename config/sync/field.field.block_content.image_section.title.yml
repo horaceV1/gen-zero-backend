@@ -1,0 +1,19 @@
+uuid: e83bff65-155a-42b8-afe3-c3533518c4f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_section
+    - field.storage.block_content.title
+id: block_content.image_section.title
+field_name: title
+entity_type: block_content
+bundle: image_section
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

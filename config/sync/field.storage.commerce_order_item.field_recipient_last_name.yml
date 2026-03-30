@@ -1,0 +1,23 @@
+uuid: 6eb951c1-9daa-412d-9c26-d704285b3d1f
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+_core:
+  default_config_hash: EmfGxwCA7t2Er1lvMiS5TZhh_TLLw8NHjEpn25AzpAU
+id: commerce_order_item.field_recipient_last_name
+field_name: field_recipient_last_name
+entity_type: commerce_order_item
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

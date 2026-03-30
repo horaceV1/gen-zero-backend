@@ -1,0 +1,9 @@
+gen_zero_donations.config:
+  path: '/api/donations/config'
+  defaults:
+    _controller: '\Drupal\gen_zero_donations\Controller\DonationConfigController::getConfig'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE

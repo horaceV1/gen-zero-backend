@@ -1,0 +1,8 @@
+gen_zero_subscriptions:
+  tab:
+    tier_groups:
+      title: 'Grupos de Níveis'
+    tiers:
+      title: Níveis
+    user_subscriptions:
+      title: 'Subscrições de Utilizadores'

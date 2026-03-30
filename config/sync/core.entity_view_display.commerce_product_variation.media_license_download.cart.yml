@@ -17,15 +17,16 @@ mode: cart
 content:
   title:
     type: string
-    weight: 0
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   commerce_file: true
   commerce_variation_cart_form: true
+  langcode: true
   license_expiration: true
   license_type: true
   list_price: true

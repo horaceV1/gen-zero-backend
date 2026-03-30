@@ -1,0 +1,8 @@
+uuid: 1177baaa-29fd-487c-a24a-4c22f4099ff0
+langcode: en
+status: true
+dependencies: {  }
+id: image_section
+label: 'Secção de imagens'
+revision: false
+description: 'Usa imagens e texto para expor ideias no site.'

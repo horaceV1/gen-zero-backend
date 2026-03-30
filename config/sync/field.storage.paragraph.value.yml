@@ -1,0 +1,20 @@
+uuid: fe5bbce0-af5b-48eb-beb0-0c01167e6461
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.value
+field_name: value
+entity_type: paragraph
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

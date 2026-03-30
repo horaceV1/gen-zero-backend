@@ -1,0 +1,8 @@
+uuid: f2972f07-bc5b-434d-9a7a-3b52ea785a9f
+langcode: en
+status: true
+dependencies: {  }
+id: cta_card_block
+label: 'CTA card block'
+revision: false
+description: null

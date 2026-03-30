@@ -1,0 +1,8 @@
+uuid: 07c79be0-4f4a-4e35-95bd-7d2ff9a98da0
+langcode: en
+status: true
+dependencies: {  }
+id: cta_imagem
+label: 'CTA Imagem'
+revision: false
+description: null

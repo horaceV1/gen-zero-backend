@@ -1,0 +1,18 @@
+uuid: 36172f3b-1987-446b-b9f5-e48a7c716af5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: yAhe_ssOjFwJ8gwIsR5u6u2C8o6-qqsK8jjSAI0sK5o
+label: Donation
+id: donation
+workflow: order_default
+showOrderEditLinks: null
+numberPattern: order_default
+refresh_mode: customer
+refresh_frequency: 300
+sendReceipt: true
+receiptBcc: ''
+receiptSubject: ''
+traits: {  }
+locked: false

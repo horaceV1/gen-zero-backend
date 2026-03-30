@@ -1,0 +1,8 @@
+uuid: a78ea2a3-96aa-4a61-a63d-01848b6e19a3
+langcode: en
+status: true
+dependencies: {  }
+id: subscription_tiers
+label: Subscrições
+revision: false
+description: 'Block to display subscription tier plans. Select a tier group or show all.'

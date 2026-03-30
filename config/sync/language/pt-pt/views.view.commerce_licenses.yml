@@ -1,0 +1,58 @@
+display:
+  default:
+    display_title: Principal
+    display_options:
+      fields:
+        license_id:
+          label: ID
+          separator: ', '
+        label:
+          label: Etiqueta
+        type:
+          separator: ', '
+        uid:
+          label: Proprietário
+          separator: ', '
+        state:
+          label: Estado
+          separator: ', '
+        granted:
+          separator: ', '
+        expires:
+          label: Expira
+          separator: ', '
+        changed:
+          label: Atualizado
+          separator: ', '
+        operations:
+          label: 'Ligações de operações'
+        name:
+          label: Nome
+          separator: ', '
+        mail:
+          label: Email
+          separator: ', '
+      pager:
+        options:
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« Primeira'
+            last: 'Última »'
+          expose:
+            items_per_page_label: 'Itens por página'
+            items_per_page_options_all_label: '- Todos -'
+            offset_label: Deslocamento
+      exposed_form:
+        options:
+          submit_button: Filtro
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      filters:
+        state:
+          expose:
+            label: Estado
+  page_1:
+    display_title: Página

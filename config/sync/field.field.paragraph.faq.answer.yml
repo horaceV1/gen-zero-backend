@@ -1,0 +1,32 @@
+uuid: aa73ab33-3b66-483f-a088-4c620a10c457
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.answer
+    - filter.format.basic_html
+    - filter.format.email_html
+    - filter.format.full_html
+    - filter.format.plain_text
+    - filter.format.restricted_html
+    - paragraphs.paragraphs_type.faq
+  module:
+    - text
+id: paragraph.faq.answer
+field_name: answer
+entity_type: paragraph
+bundle: faq
+label: Resposta
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - restricted_html
+    - full_html
+    - email_html
+    - plain_text
+field_type: text_long

@@ -1,0 +1,16 @@
+administer subscriptions:
+  title: 'Administer subscriptions'
+  description: 'Manage subscription tier groups, tiers, and settings.'
+  restrict access: true
+
+view subscription tiers:
+  title: 'View subscription tiers'
+  description: 'View available subscription tiers via the REST API.'
+
+create subscriptions:
+  title: 'Create subscriptions'
+  description: 'Allows users to create subscriptions via the REST API.'
+
+manage own subscription:
+  title: 'Manage own subscription'
+  description: 'Allows users to view, pause, or cancel their own subscriptions.'

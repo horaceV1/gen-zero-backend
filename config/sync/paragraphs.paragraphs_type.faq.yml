@@ -1,0 +1,10 @@
+uuid: a23e5f66-e3bb-49ba-a226-c4ad6c6f6652
+langcode: en
+status: true
+dependencies: {  }
+id: faq
+label: Perguntas
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

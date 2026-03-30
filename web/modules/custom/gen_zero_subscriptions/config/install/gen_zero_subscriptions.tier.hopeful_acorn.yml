@@ -1,0 +1,15 @@
+id: hopeful_acorn
+label: 'Hopeful Acorn'
+group: general_support
+price: '5.00'
+currency: EUR
+billing_period: monthly
+description: 'Your €5 plants one native tree that will absorb 22kg of CO₂ annually and provide habitat for local wildlife for decades to come.'
+benefits:
+  - 'Early Access to Vlog'
+  - 'Sneak Peek of the Upcoming Vlog'
+  - 'All Videos Ad-Free'
+badge_label: 'Starter'
+product_variation_id: null
+weight: 0
+status: true

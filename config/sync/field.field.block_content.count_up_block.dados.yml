@@ -1,0 +1,43 @@
+uuid: 08e31dbe-28b5-4877-82cf-d4a3c01b5c19
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.count_up_block
+    - field.storage.block_content.dados
+    - paragraphs.paragraphs_type.count_up
+  module:
+    - entity_reference_revisions
+id: block_content.count_up_block.dados
+field_name: dados
+entity_type: block_content
+bundle: count_up_block
+label: Dados
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      count_up: count_up
+    negate: 0
+    target_bundles_drag_drop:
+      card:
+        weight: 5
+        enabled: false
+      count_up:
+        weight: 7
+        enabled: true
+      faq:
+        weight: 6
+        enabled: false
+      image:
+        weight: 7
+        enabled: false
+      objective:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,19 @@
+uuid: 64ef208b-940b-4292-8d1d-5f0e0c79c132
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_section
+    - field.storage.block_content.subtitle
+id: block_content.image_section.subtitle
+field_name: subtitle
+entity_type: block_content
+bundle: image_section
+label: Subtitle
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

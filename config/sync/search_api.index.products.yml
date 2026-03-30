@@ -94,7 +94,8 @@ datasource_settings:
   'entity:commerce_product':
     bundles:
       default: true
-      selected: {  }
+      selected:
+        - subscription
     languages:
       default: true
       selected: {  }

@@ -1,0 +1,18 @@
+uuid: 22966540-9155-49d3-a895-95c63c6ce006
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - admin
+    parent: 'admin:'
+name: Informações
+type: information
+description: 'Este tipo de conteúdo serve para guardar informação sobre o site para puder recorrer a este recurso. Exemplo: Localização/Morada, esta página só deve ser editada. Só podes ter uma no teu site'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

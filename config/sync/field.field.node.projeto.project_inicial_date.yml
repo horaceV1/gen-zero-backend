@@ -1,0 +1,21 @@
+uuid: 56b195ba-f809-42e5-924e-07b14a4558f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.project_inicial_date
+    - node.type.projeto
+  module:
+    - datetime
+id: node.projeto.project_inicial_date
+field_name: project_inicial_date
+entity_type: node
+bundle: projeto
+label: 'Data de Inicio'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

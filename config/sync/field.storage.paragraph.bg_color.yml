@@ -1,0 +1,30 @@
+uuid: feeecadf-15ab-4b4d-8f00-2ea7955ac97e
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.bg_color
+field_name: bg_color
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: gray
+      label: Cinzento
+    -
+      value: white
+      label: Branco
+    -
+      value: black
+      label: Preto
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

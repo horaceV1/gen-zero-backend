@@ -1,0 +1,3 @@
+'create donations':
+  title: 'Criar doações'
+  description: 'Permite que os utilizadores criem encomendas de doação através da API REST.'

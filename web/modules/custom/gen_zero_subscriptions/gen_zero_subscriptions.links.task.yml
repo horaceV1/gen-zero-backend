@@ -1,0 +1,14 @@
+gen_zero_subscriptions.tab.tier_groups:
+  title: 'Tier Groups'
+  route_name: entity.subscription_tier_group.collection
+  base_route: entity.subscription_tier_group.collection
+
+gen_zero_subscriptions.tab.tiers:
+  title: 'Tiers'
+  route_name: entity.subscription_tier.collection
+  base_route: entity.subscription_tier_group.collection
+
+gen_zero_subscriptions.tab.user_subscriptions:
+  title: 'User Subscriptions'
+  route_name: entity.user_subscription.collection
+  base_route: entity.subscription_tier_group.collection

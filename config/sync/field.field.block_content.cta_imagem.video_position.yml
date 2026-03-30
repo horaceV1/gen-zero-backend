@@ -1,0 +1,21 @@
+uuid: c098fa8f-3051-4220-b3d5-3d519e3600f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_imagem
+    - field.storage.block_content.video_position
+  module:
+    - options
+id: block_content.cta_imagem.video_position
+field_name: video_position
+entity_type: block_content
+bundle: cta_imagem
+label: 'Posição do Imagem'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

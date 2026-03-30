@@ -1,0 +1,27 @@
+uuid: 6eea9143-320f-43d9-8a69-e962516ff6e4
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.cta_position
+field_name: cta_position
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: top
+      label: Topo
+    -
+      value: bottom
+      label: 'Em baixo'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,7 @@
+services:
+  gen_zero_donations.donation_manager:
+    class: Drupal\gen_zero_donations\DonationManager
+    arguments:
+      - '@entity_type.manager'
+      - '@current_user'
+      - '@logger.factory'

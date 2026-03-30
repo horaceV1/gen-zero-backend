@@ -1,0 +1,123 @@
+gen_zero_subscriptions.tier_group.*:
+  type: config_entity
+  label: 'Subscription Tier Group'
+  mapping:
+    id:
+      type: string
+      label: 'Machine name'
+    label:
+      type: label
+      label: 'Label'
+    description:
+      type: text
+      label: 'Description'
+    weight:
+      type: integer
+      label: 'Weight'
+    status:
+      type: boolean
+      label: 'Status'
+
+gen_zero_subscriptions.tier.*:
+  type: config_entity
+  label: 'Subscription Tier'
+  mapping:
+    id:
+      type: string
+      label: 'Machine name'
+    label:
+      type: label
+      label: 'Label'
+    group:
+      type: string
+      label: 'Tier Group ID'
+    price:
+      type: string
+      label: 'Price'
+    currency:
+      type: string
+      label: 'Currency code'
+    billing_period:
+      type: string
+      label: 'Billing period'
+    description:
+      type: text
+      label: 'Description'
+    benefits:
+      type: sequence
+      label: 'Tier Benefits'
+      sequence:
+        type: string
+        label: 'Benefit'
+    badge_label:
+      type: string
+      label: 'Badge label'
+    product_variation_id:
+      type: integer
+      label: 'Commerce product variation ID'
+      nullable: true
+    weight:
+      type: integer
+      label: 'Weight'
+    status:
+      type: boolean
+      label: 'Status'
+
+gen_zero_subscriptions.gateway_settings:
+  type: config_object
+  label: 'Payment Gateway Settings'
+  mapping:
+    paypal:
+      type: mapping
+      label: 'PayPal Settings'
+      mapping:
+        mode:
+          type: string
+          label: 'Mode (sandbox or live)'
+        client_id:
+          type: string
+          label: 'Client ID'
+        client_secret:
+          type: string
+          label: 'Client Secret'
+        webhook_id:
+          type: string
+          label: 'Webhook ID'
+        return_url:
+          type: string
+          label: 'Return URL'
+        cancel_url:
+          type: string
+          label: 'Cancel URL'
+        plan_mapping:
+          type: sequence
+          label: 'Tier to PayPal Plan ID mapping'
+          sequence:
+            type: string
+            label: 'PayPal Plan ID'
+    eupago:
+      type: mapping
+      label: 'EuPago Settings'
+      mapping:
+        mode:
+          type: string
+          label: 'Mode (demo or live)'
+        api_key:
+          type: string
+          label: 'API Key'
+        channel:
+          type: string
+          label: 'Channel'
+        return_url:
+          type: string
+          label: 'Return URL'
+        multibanco_deadline_days:
+          type: integer
+          label: 'Multibanco deadline days'
+          nullable: true
+        allowed_methods:
+          type: sequence
+          label: 'Allowed payment methods'
+          sequence:
+            type: string
+            label: 'Method'

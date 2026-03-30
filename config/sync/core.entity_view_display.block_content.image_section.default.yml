@@ -1,0 +1,61 @@
+uuid: ed824bee-850c-445b-afb2-c7cfe3f89c4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_section
+    - field.field.block_content.image_section.bg_color
+    - field.field.block_content.image_section.dados
+    - field.field.block_content.image_section.n_columns
+    - field.field.block_content.image_section.subtitle
+    - field.field.block_content.image_section.title
+  module:
+    - entity_reference_revisions
+    - options
+id: block_content.image_section.default
+targetEntityType: block_content
+bundle: image_section
+mode: default
+content:
+  bg_color:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  dados:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  n_columns:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  subtitle:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

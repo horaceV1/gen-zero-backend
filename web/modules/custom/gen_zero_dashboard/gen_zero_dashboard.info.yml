@@ -1,0 +1,8 @@
+name: 'Gen Zero Dashboard'
+type: module
+description: 'Admin dashboard with quick-access panel for all site management features.'
+core_version_requirement: ^10.3 || ^11
+package: 'Gen Zero'
+dependencies:
+  - drupal:user
+  - drupal:system

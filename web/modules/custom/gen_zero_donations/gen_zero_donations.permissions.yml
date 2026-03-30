@@ -1,0 +1,3 @@
+create donations:
+  title: 'Create donations'
+  description: 'Allows users to create donation orders via the REST API.'

@@ -1,0 +1,24 @@
+uuid: e63d1cd5-b98b-4cae-9be7-d9e10f95f92e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: UVkgYEQRLo-8TJb_fbzle7d8Z1LbTJcFLFo7qCmUNGw
+id: projeto
+label: Projeto
+type: 'canonical_entities:node'
+pattern: '/projeto/[node:field_tags:0:entity]/[node:title]'
+selection_criteria:
+  66dbeab4-0543-49b6-b153-fe8b2d7d5a7c:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 66dbeab4-0543-49b6-b153-fe8b2d7d5a7c
+    context_mapping:
+      node: node
+    bundles:
+      projeto: projeto
+selection_logic: and
+weight: -5
+relationships: {  }

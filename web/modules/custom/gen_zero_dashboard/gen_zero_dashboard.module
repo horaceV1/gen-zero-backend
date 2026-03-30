@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Module file for Gen Zero Dashboard.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function gen_zero_dashboard_theme(): array {
+  return [
+    'gen_zero_dashboard' => [
+      'variables' => [
+        'stats' => [],
+        'sections' => [],
+      ],
+      'template' => 'gen-zero-dashboard',
+    ],
+  ];
+}

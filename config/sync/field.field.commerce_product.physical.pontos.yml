@@ -1,0 +1,25 @@
+uuid: 463a9f9b-cf92-42fa-bc25-130955ecc7f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.physical
+    - field.storage.commerce_product.pontos
+id: commerce_product.physical.pontos
+field_name: pontos
+entity_type: commerce_product
+bundle: physical
+label: Pontos
+description: 'Para adicionar ao ecosistema quando calcular'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,15 @@
+id: young_sprout
+label: 'Young Sprout'
+group: general_support
+price: '15.00'
+currency: EUR
+billing_period: monthly
+description: 'Your €15 plants 3 native trees that will absorb 66 kg of CO₂ annually and provide habitat for local wildlife for decades to come.'
+benefits:
+  - 'Early Access to Vlog'
+  - 'Sneak Peek of the Upcoming Vlog'
+  - 'All Videos Ad-Free'
+badge_label: 'Supporter'
+product_variation_id: null
+weight: 1
+status: true

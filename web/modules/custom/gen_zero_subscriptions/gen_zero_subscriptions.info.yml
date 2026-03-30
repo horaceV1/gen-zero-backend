@@ -1,0 +1,11 @@
+name: 'Gen Zero Subscriptions'
+type: module
+description: 'Modular subscription tier management system with payment gateway abstraction.'
+core_version_requirement: ^10.3 || ^11
+package: 'Gen Zero'
+dependencies:
+  - drupal:commerce_order
+  - drupal:commerce_price
+  - drupal:rest
+  - drupal:serialization
+  - drupal:user

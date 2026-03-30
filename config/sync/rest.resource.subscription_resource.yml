@@ -1,0 +1,24 @@
+uuid: da313c71-8bea-4a70-9109-756b3a230f1c
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - gen_zero_subscriptions
+    - jwt
+    - serialization
+    - user
+_core:
+  default_config_hash: no2WQZp5CasZUvFF9s_ZWlRzy1Tk0Rqv5DM-WOwg9uE
+id: subscription_resource
+plugin_id: subscription_resource
+granularity: resource
+configuration:
+  methods:
+    - POST
+  formats:
+    - json
+  authentication:
+    - cookie
+    - basic_auth
+    - jwt_auth

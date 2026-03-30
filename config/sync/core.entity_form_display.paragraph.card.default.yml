@@ -1,0 +1,41 @@
+uuid: ab13f827-a111-462e-bb3c-8e0a87f86b23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card.bg_color
+    - field.field.paragraph.card.text
+    - field.field.paragraph.card.title
+    - paragraphs.paragraphs_type.card
+  module:
+    - text
+id: paragraph.card.default
+targetEntityType: paragraph
+bundle: card
+mode: default
+content:
+  bg_color:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  text:
+    type: text_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

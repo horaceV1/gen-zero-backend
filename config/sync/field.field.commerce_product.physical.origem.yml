@@ -1,0 +1,29 @@
+uuid: a7414257-7e62-4840-9b75-e57b3642f6dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.physical
+    - field.storage.commerce_product.origem
+    - taxonomy.vocabulary.origem
+id: commerce_product.physical.origem
+field_name: origem
+entity_type: commerce_product
+bundle: physical
+label: Origem
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      origem: origem
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

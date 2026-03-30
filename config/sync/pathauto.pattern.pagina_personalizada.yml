@@ -1,0 +1,24 @@
+uuid: 1b7bc94c-421c-4d41-b296-d94234a60bdf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: UVkgYEQRLo-8TJb_fbzle7d8Z1LbTJcFLFo7qCmUNGw
+id: pagina_personalizada
+label: 'Pagina Personalizada'
+type: 'canonical_entities:node'
+pattern: '/[node:field_tags:0:entity]/[node:title]'
+selection_criteria:
+  acbff74a-ea64-4abc-b1cb-a05744b41f3b:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: acbff74a-ea64-4abc-b1cb-a05744b41f3b
+    context_mapping:
+      node: node
+    bundles:
+      pagina_personalizada: pagina_personalizada
+selection_logic: and
+weight: -5
+relationships: {  }

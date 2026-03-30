@@ -1,0 +1,174 @@
+/* Gen Zero Admin Dashboard */
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+
+.gz-dashboard {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ── Stats Cards ── */
+.gz-dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.gz-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem 1rem;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  text-decoration: none;
+  color: #1e293b;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.gz-stat-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59,130,246,0.15);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: #1e293b;
+}
+
+.gz-stat-card__icon {
+  font-size: 2rem;
+  color: #3b82f6;
+  margin-bottom: 0.5rem;
+}
+
+.gz-stat-card--commerce .gz-stat-card__icon,
+.gz-stat-card--products .gz-stat-card__icon { color: #8b5cf6; }
+.gz-stat-card--orders .gz-stat-card__icon { color: #f59e0b; }
+.gz-stat-card--users .gz-stat-card__icon { color: #10b981; }
+.gz-stat-card--subscriptions .gz-stat-card__icon { color: #ec4899; }
+.gz-stat-card--content .gz-stat-card__icon { color: #6366f1; }
+
+.gz-stat-card__count {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.gz-stat-card__label {
+  font-size: 0.8rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+/* ── Sections ── */
+.gz-dashboard__sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 860px) {
+  .gz-dashboard__sections {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gz-dashboard-section {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.gz-dashboard-section__title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.25rem;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.gz-dashboard-section__title .material-symbols-outlined {
+  font-size: 1.25rem;
+  color: #64748b;
+}
+
+/* Section color accents */
+.gz-dashboard-section--commerce .gz-dashboard-section__title { border-left: 4px solid #8b5cf6; }
+.gz-dashboard-section--content .gz-dashboard-section__title { border-left: 4px solid #3b82f6; }
+.gz-dashboard-section--subscriptions .gz-dashboard-section__title { border-left: 4px solid #ec4899; }
+.gz-dashboard-section--donations .gz-dashboard-section__title { border-left: 4px solid #f59e0b; }
+.gz-dashboard-section--taxonomy .gz-dashboard-section__title { border-left: 4px solid #10b981; }
+.gz-dashboard-section--webforms .gz-dashboard-section__title { border-left: 4px solid #06b6d4; }
+.gz-dashboard-section--menus .gz-dashboard-section__title { border-left: 4px solid #6366f1; }
+.gz-dashboard-section--users .gz-dashboard-section__title { border-left: 4px solid #14b8a6; }
+.gz-dashboard-section--configuration .gz-dashboard-section__title { border-left: 4px solid #94a3b8; }
+
+.gz-dashboard-section__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+/* ── Links ── */
+.gz-dashboard-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  color: #334155;
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.15s ease;
+}
+
+.gz-dashboard-link:last-child {
+  border-bottom: none;
+}
+
+.gz-dashboard-link:hover {
+  background: #f0f9ff;
+  color: #1e40af;
+  text-decoration: none;
+}
+
+.gz-dashboard-link__icon {
+  font-size: 1.25rem;
+  color: #94a3b8;
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+.gz-dashboard-link:hover .gz-dashboard-link__icon {
+  color: #3b82f6;
+}
+
+.gz-dashboard-link__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.gz-dashboard-link__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.gz-dashboard-link__desc {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  line-height: 1.3;
+  margin-top: 0.125rem;
+}

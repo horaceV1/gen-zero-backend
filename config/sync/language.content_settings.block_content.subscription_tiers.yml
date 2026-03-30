@@ -1,0 +1,11 @@
+uuid: ba344158-5b84-4053-ab6f-41d74f48334f
+langcode: pt-pt
+status: true
+dependencies:
+  config:
+    - block_content.type.subscription_tiers
+id: block_content.subscription_tiers
+target_entity_type_id: block_content
+target_bundle: subscription_tiers
+default_langcode: site_default
+language_alterable: false

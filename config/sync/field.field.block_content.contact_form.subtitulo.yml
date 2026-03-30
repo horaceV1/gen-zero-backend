@@ -1,0 +1,22 @@
+uuid: 45cf6193-3d92-4ca1-9ebf-ded292a9117d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.contact_form
+    - field.storage.block_content.subtitulo
+  module:
+    - text
+id: block_content.contact_form.subtitulo
+field_name: subtitulo
+entity_type: block_content
+bundle: contact_form
+label: SubTitulo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text

@@ -1,0 +1,23 @@
+uuid: b8710803-e598-46c3-9b2f-0b65ba4efe80
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_section
+    - field.storage.block_content.n_columns
+  module:
+    - options
+id: block_content.image_section.n_columns
+field_name: n_columns
+entity_type: block_content
+bundle: image_section
+label: 'nº de colunas'
+description: 'Decide quantos cartões por fila.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 3
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

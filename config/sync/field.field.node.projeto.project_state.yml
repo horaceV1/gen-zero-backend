@@ -1,0 +1,21 @@
+uuid: f12316dd-8c02-49a9-8e46-8b41f2240df5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.project_state
+    - node.type.projeto
+  module:
+    - options
+id: node.projeto.project_state
+field_name: project_state
+entity_type: node
+bundle: projeto
+label: Estado
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,22 @@
+uuid: 3d7ab63b-8957-437d-9bd4-55d17ab33092
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.frontpage_hero
+    - field.storage.block_content.subtitulo
+  module:
+    - text
+id: block_content.frontpage_hero.subtitulo
+field_name: subtitulo
+entity_type: block_content
+bundle: frontpage_hero
+label: SubTitulo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text

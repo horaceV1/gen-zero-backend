@@ -1,0 +1,19 @@
+uuid: fb6d2979-955e-4351-ab55-8ef76c68bb3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.contact_form
+    - field.storage.block_content.field_title
+id: block_content.contact_form.field_title
+field_name: field_title
+entity_type: block_content
+bundle: contact_form
+label: Título
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

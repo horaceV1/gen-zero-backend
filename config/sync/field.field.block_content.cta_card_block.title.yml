@@ -1,0 +1,19 @@
+uuid: 68c8a2d6-696c-4c67-a6f3-43a1532cfa73
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_card_block
+    - field.storage.block_content.title
+id: block_content.cta_card_block.title
+field_name: title
+entity_type: block_content
+bundle: cta_card_block
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

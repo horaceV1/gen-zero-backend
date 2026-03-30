@@ -1,0 +1,63 @@
+uuid: 8ebd8628-2a7b-4962-a6f6-d8bd942bf971
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+    - block_content.type.cklb_button
+    - block_content.type.cklb_hero
+    - block_content.type.cklb_image
+    - block_content.type.cklb_products
+    - block_content.type.cklb_text
+    - block_content.type.cklb_title
+    - block_content.type.contact_form
+    - block_content.type.count_up_block
+    - block_content.type.cta_card_block
+    - block_content.type.cta_imagem
+    - block_content.type.cta_video
+    - block_content.type.faq_block
+    - block_content.type.frontpage_hero
+    - block_content.type.hero_block
+    - block_content.type.image_section
+    - block_content.type.location_section
+    - block_content.type.subscription_tiers
+    - field.storage.node.blocos
+    - node.type.pagina_personalizada
+id: node.pagina_personalizada.blocos
+field_name: blocos
+entity_type: node
+bundle: pagina_personalizada
+label: Blocos
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      basic: basic
+      cklb_button: cklb_button
+      cta_imagem: cta_imagem
+      cta_card_block: cta_card_block
+      cta_video: cta_video
+      count_up_block: count_up_block
+      contact_form: contact_form
+      frontpage_hero: frontpage_hero
+      hero_block: hero_block
+      cklb_hero: cklb_hero
+      cklb_image: cklb_image
+      faq_block: faq_block
+      cklb_products: cklb_products
+      location_section: location_section
+      image_section: image_section
+      cklb_text: cklb_text
+      cklb_title: cklb_title
+      subscription_tiers: subscription_tiers
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: basic
+field_type: entity_reference

@@ -1,0 +1,12 @@
+uuid: a624bbf2-1a5b-4304-b855-24121ca5d44f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: X5vu8ZlswQ9Wi3vTOinA_mJattDwx2aM8sPwcHL7Q9A
+id: donation
+label: Donation
+traits: {  }
+locked: false
+purchasableEntityType: ''
+orderType: donation

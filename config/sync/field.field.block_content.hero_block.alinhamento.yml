@@ -1,0 +1,21 @@
+uuid: 31d54e36-3796-431e-93b2-c8203eff9454
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_block
+    - field.storage.block_content.alinhamento
+  module:
+    - options
+id: block_content.hero_block.alinhamento
+field_name: alinhamento
+entity_type: block_content
+bundle: hero_block
+label: Alinhamento
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

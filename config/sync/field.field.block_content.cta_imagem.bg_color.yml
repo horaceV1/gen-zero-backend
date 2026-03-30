@@ -1,0 +1,23 @@
+uuid: 149d0897-0895-473d-9481-17cd2b1ea40e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_imagem
+    - field.storage.block_content.bg_color
+  module:
+    - options
+id: block_content.cta_imagem.bg_color
+field_name: bg_color
+entity_type: block_content
+bundle: cta_imagem
+label: 'Cor de fundo'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: white
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,46 @@
+uuid: 48d311c9-23fc-4e3d-b3d2-f7b3ffc41a74
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_section
+    - field.storage.block_content.dados
+    - paragraphs.paragraphs_type.image_text
+  module:
+    - entity_reference_revisions
+id: block_content.image_section.dados
+field_name: dados
+entity_type: block_content
+bundle: image_section
+label: Dados
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      image_text: image_text
+    negate: 0
+    target_bundles_drag_drop:
+      card:
+        weight: 5
+        enabled: false
+      count_up:
+        weight: 7
+        enabled: false
+      faq:
+        weight: 6
+        enabled: false
+      image:
+        weight: 7
+        enabled: false
+      image_text:
+        weight: 11
+        enabled: true
+      objective:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

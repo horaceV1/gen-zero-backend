@@ -1,0 +1,164 @@
+uuid: 60032949-ec4f-4a2d-a6af-f85baa8540a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.donation
+    - field.field.commerce_order_item.donation.field_card_email
+    - field.field.commerce_order_item.donation.field_designated
+    - field.field.commerce_order_item.donation.field_designation_type
+    - field.field.commerce_order_item.donation.field_donation_amount
+    - field.field.commerce_order_item.donation.field_gift_type
+    - field.field.commerce_order_item.donation.field_honoree_first
+    - field.field.commerce_order_item.donation.field_honoree_last
+    - field.field.commerce_order_item.donation.field_message
+    - field.field.commerce_order_item.donation.field_monthly
+    - field.field.commerce_order_item.donation.field_notify
+    - field.field.commerce_order_item.donation.field_recipient_first_name
+    - field.field.commerce_order_item.donation.field_recipient_last_name
+    - field.field.commerce_order_item.donation.field_recurring_begins
+  module:
+    - commerce_price
+    - datetime
+    - options
+_core:
+  default_config_hash: wl_XcrTUylm0Ocj6NQU24XsxOJmXip0Kas9byVaytoU
+id: commerce_order_item.donation.default
+targetEntityType: commerce_order_item
+bundle: donation
+mode: default
+content:
+  created:
+    type: timestamp
+    label: hidden
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+      tooltip:
+        date_format: long
+        custom_date_format: ''
+      time_diff:
+        enabled: false
+        future_format: '@interval hence'
+        past_format: '@interval ago'
+        granularity: 2
+        refresh: 60
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_card_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_designated:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_designation_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_donation_amount:
+    type: commerce_price_default
+    label: above
+    settings:
+      strip_trailing_zeroes: false
+      currency_display: symbol
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_gift_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_honoree_first:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_honoree_last:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_message:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_monthly:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  field_notify:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_recipient_first_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_recipient_last_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_recurring_begins:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 15
+    region: content
+hidden:
+  adjustments: true
+  quantity: true
+  search_api_excerpt: true
+  title: true
+  total_price: true
+  unit_price: true

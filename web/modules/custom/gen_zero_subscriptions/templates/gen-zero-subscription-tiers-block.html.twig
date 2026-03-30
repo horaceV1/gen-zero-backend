@@ -1,0 +1,83 @@
+{#
+/**
+ * @file
+ * Template for the Subscription Tiers block.
+ *
+ * Available variables:
+ * - groups: Array of tier groups, each with:
+ *   - id: Machine name of the group.
+ *   - label: Human-readable group name.
+ *   - description: Optional group description.
+ *   - tiers: Array of tiers, each with:
+ *     - id: Machine name of the tier.
+ *     - label: Tier name.
+ *     - price: Numeric price amount.
+ *     - currency: Currency code (e.g. EUR).
+ *     - billing_period: monthly|quarterly|yearly.
+ *     - description: Tier description.
+ *     - benefits: Array of benefit strings.
+ *     - badge_label: Optional badge text.
+ *     - is_subscribed: Whether the current user is subscribed to this tier.
+ *     - user_subscription_id: The user's subscription ID (if subscribed).
+ * - cancel_base_url: Base URL for cancelling subscriptions.
+ */
+#}
+<div class="subscription-tiers-block">
+  {% for group in groups %}
+    <div class="subscription-tiers-group" data-group-id="{{ group.id }}">
+      {% if group.label %}
+        <h2 class="subscription-tiers-group__title">{{ group.label }}</h2>
+      {% endif %}
+      {% if group.description %}
+        <p class="subscription-tiers-group__description">{{ group.description }}</p>
+      {% endif %}
+
+      {% if group.tiers is not empty %}
+        <ul class="subscription-tiers-list">
+          {% for tier in group.tiers %}
+            <li class="subscription-tier{% if tier.is_subscribed %} subscription-tier--active{% endif %}" data-tier-id="{{ tier.id }}">
+              {% if tier.badge_label %}
+                <span class="subscription-tier__badge">{{ tier.badge_label }}</span>
+              {% endif %}
+              <h3 class="subscription-tier__name">{{ tier.label }}</h3>
+              <p class="subscription-tier__price">
+                {{ tier.currency }} {{ tier.price }}
+                <span class="subscription-tier__period">/ {{ tier.billing_period }}</span>
+              </p>
+              {% if tier.description %}
+                <p class="subscription-tier__description">{{ tier.description }}</p>
+              {% endif %}
+              {% if tier.benefits is not empty %}
+                <ul class="subscription-tier__benefits">
+                  {% for benefit in tier.benefits %}
+                    <li>{{ benefit }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+              <div class="subscription-tier__actions">
+                {% if tier.is_subscribed %}
+                  <span class="subscription-tier__status">{{ 'Active Subscription'|t }}</span>
+                  {% if cancel_base_url and tier.user_subscription_id %}
+                    <a href="{{ cancel_base_url }}/{{ tier.user_subscription_id }}/cancel"
+                       class="subscription-tier__cancel button button--danger"
+                       data-subscription-id="{{ tier.user_subscription_id }}">
+                      {{ 'Cancel Subscription'|t }}
+                    </a>
+                  {% endif %}
+                {% else %}
+                  <a href="#"
+                     class="subscription-tier__subscribe button button--primary"
+                     data-tier-id="{{ tier.id }}">
+                    {{ 'Subscribe'|t }}
+                  </a>
+                {% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>{{ 'No subscription tiers available.'|t }}</p>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,15 @@
+id: growing_oak
+label: 'Growing Oak'
+group: general_support
+price: '25.00'
+currency: EUR
+billing_period: monthly
+description: 'Your €25 plants 5 native trees that will absorb 110 kg of CO₂ annually and provide habitat for local wildlife for decades to come.'
+benefits:
+  - 'Early Access to Vlog'
+  - 'Sneak Peek of the Upcoming Vlog'
+  - 'All Videos Ad-Free'
+badge_label: 'Champion'
+product_variation_id: null
+weight: 2
+status: true

@@ -1,0 +1,23 @@
+uuid: c2b7e2c5-f7a9-4ce3-a8b0-f0a8a69d8e55
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_section
+    - field.storage.block_content.bg_color
+  module:
+    - options
+id: block_content.image_section.bg_color
+field_name: bg_color
+entity_type: block_content
+bundle: image_section
+label: 'Cor de fundo do botão'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: white
+default_value_callback: ''
+settings: {  }
+field_type: list_string

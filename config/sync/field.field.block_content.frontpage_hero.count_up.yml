@@ -1,0 +1,46 @@
+uuid: 3f0f5536-209f-48c7-bfc8-c5bf81afa870
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.frontpage_hero
+    - field.storage.block_content.count_up
+    - paragraphs.paragraphs_type.count_up
+  module:
+    - entity_reference_revisions
+id: block_content.frontpage_hero.count_up
+field_name: count_up
+entity_type: block_content
+bundle: frontpage_hero
+label: 'Count up'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      count_up: count_up
+    negate: 0
+    target_bundles_drag_drop:
+      card:
+        weight: 7
+        enabled: false
+      count_up:
+        weight: 8
+        enabled: true
+      faq:
+        weight: 9
+        enabled: false
+      image:
+        weight: 10
+        enabled: false
+      image_text:
+        weight: 11
+        enabled: false
+      objective:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

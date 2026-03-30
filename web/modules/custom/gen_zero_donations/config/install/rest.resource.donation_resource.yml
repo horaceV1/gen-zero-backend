@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - gen_zero_donations
+    - serialization
+    - basic_auth
+    - jwt_auth_issuer
+id: donation_resource
+plugin_id: donation_resource
+granularity: resource
+configuration:
+  methods:
+    - POST
+  formats:
+    - json
+  authentication:
+    - cookie
+    - basic_auth
+    - jwt_auth

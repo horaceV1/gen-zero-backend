@@ -1,0 +1,17 @@
+uuid: 47364f29-468a-4275-8e2c-6af4c5fa1bed
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - gen_zero_webform_rest
+    - serialization
+id: gen_zero_webform_submit
+plugin_id: gen_zero_webform_submit
+granularity: method
+configuration:
+  POST:
+    supported_formats:
+      - json
+    supported_auth:
+      - basic_auth

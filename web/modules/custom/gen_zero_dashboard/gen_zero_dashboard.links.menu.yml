@@ -1,0 +1,6 @@
+gen_zero_dashboard.admin:
+  title: 'Painel de Controlo'
+  description: 'Dashboard de acesso rápido a todas as funcionalidades do site.'
+  route_name: gen_zero_dashboard.admin
+  parent: system.admin
+  weight: -100

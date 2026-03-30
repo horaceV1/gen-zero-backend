@@ -1,0 +1,26 @@
+uuid: c64e1d89-cd8d-4bd0-a1cb-29ccdbb97402
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.text
+    - filter.format.basic_html
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.image_text
+  module:
+    - text
+id: paragraph.image_text.text
+field_name: text
+entity_type: paragraph
+bundle: image_text
+label: Texto
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text

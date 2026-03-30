@@ -1,0 +1,23 @@
+uuid: abd9c1aa-4154-4023-8a75-deb7e6504957
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_card_block
+    - field.storage.block_content.cta_position
+  module:
+    - options
+id: block_content.cta_card_block.cta_position
+field_name: cta_position
+entity_type: block_content
+bundle: cta_card_block
+label: 'posição do CTA'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: top
+default_value_callback: ''
+settings: {  }
+field_type: list_string

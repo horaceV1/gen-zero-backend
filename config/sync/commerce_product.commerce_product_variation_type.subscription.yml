@@ -1,0 +1,10 @@
+uuid: 9e2f4d85-c3b5-4a0f-b2e9-f4d85c3b5a0f
+langcode: en
+status: true
+dependencies: {  }
+id: subscription
+label: Subscription
+orderItemType: default
+generateTitle: true
+traits: {  }
+locked: false

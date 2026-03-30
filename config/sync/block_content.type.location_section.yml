@@ -1,0 +1,8 @@
+uuid: cd389570-b9ad-42aa-b185-6666bffd75cf
+langcode: en
+status: true
+dependencies: {  }
+id: location_section
+label: 'Secção Localização'
+revision: false
+description: null

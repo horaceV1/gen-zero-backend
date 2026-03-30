@@ -1,0 +1,8 @@
+uuid: 3211cbeb-ab9b-449b-95b0-1582850b41fc
+langcode: en
+status: true
+dependencies: {  }
+id: frontpage_hero
+label: 'Frontpage Hero'
+revision: false
+description: null

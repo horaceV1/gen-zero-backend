@@ -1,0 +1,23 @@
+uuid: a574e6e1-255c-4e6b-bde8-23ceef58014d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.whatsapp
+    - node.type.information
+id: node.information.whatsapp
+field_name: whatsapp
+entity_type: node
+bundle: information
+label: WhatsApp
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 9
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

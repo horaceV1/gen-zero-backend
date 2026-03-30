@@ -1,0 +1,20 @@
+uuid: c1fb30e9-6207-4374-9f7b-70ce28ee7a47
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product_variation.quantidade_em_gramas_de_plastico
+field_name: quantidade_em_gramas_de_plastico
+entity_type: commerce_product_variation
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

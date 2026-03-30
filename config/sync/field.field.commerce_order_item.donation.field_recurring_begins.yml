@@ -1,0 +1,23 @@
+uuid: 8dca7b28-c5e5-4f62-b72e-c2e53e83f118
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.donation
+    - field.storage.commerce_order_item.field_recurring_begins
+  module:
+    - datetime
+_core:
+  default_config_hash: TKOttZx1xlEump5AenJzw2jgF95zb4p4ERcIgVrORH4
+id: commerce_order_item.donation.field_recurring_begins
+field_name: field_recurring_begins
+entity_type: commerce_order_item
+bundle: donation
+label: 'Monthly Starting'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

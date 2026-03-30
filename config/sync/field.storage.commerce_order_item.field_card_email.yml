@@ -1,0 +1,20 @@
+uuid: f3537cd1-a328-4c78-b511-b68109963d55
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+_core:
+  default_config_hash: 2Dq0dggP-JNyFOF_lhqwQm75pY3IPEaxiKWatBj5W34
+id: commerce_order_item.field_card_email
+field_name: field_card_email
+entity_type: commerce_order_item
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

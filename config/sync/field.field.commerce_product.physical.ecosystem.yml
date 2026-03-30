@@ -1,0 +1,29 @@
+uuid: a59a2efa-2e2b-4ffe-a585-0c6e878c9589
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.physical
+    - field.storage.commerce_product.ecosystem
+    - taxonomy.vocabulary.ecosystems
+id: commerce_product.physical.ecosystem
+field_name: ecosystem
+entity_type: commerce_product
+bundle: physical
+label: Ecosistema
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ecosystems: ecosystems
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

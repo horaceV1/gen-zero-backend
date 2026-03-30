@@ -1,0 +1,42 @@
+uuid: da7dc027-70c5-4b62-86f4-14bb981f145d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.origem.cor
+    - field.field.taxonomy_term.origem.simbolo
+    - taxonomy.vocabulary.origem
+  module:
+    - options
+    - text
+id: taxonomy_term.origem.default
+targetEntityType: taxonomy_term
+bundle: origem
+mode: default
+content:
+  cor:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  simbolo:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

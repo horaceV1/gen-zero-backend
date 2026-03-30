@@ -1,0 +1,20 @@
+uuid: 6f47ba62-0eb2-4666-a35c-bdef0bc74d17
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+_core:
+  default_config_hash: Wny5aq7KHUzCtO0b1l_aqKwZ22cV0RMwMcBuPVXxI-U
+id: commerce_order_item.field_designated
+field_name: field_designated
+entity_type: commerce_order_item
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

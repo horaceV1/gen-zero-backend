@@ -1,0 +1,10 @@
+uuid: eda3d10a-f430-43f1-af54-efd1ce6430f3
+langcode: en
+status: true
+dependencies:
+  module:
+    - geocoder_field
+id: file
+label: File
+plugin: file
+configuration: {  }

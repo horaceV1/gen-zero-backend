@@ -1,0 +1,36 @@
+uuid: 5a73769e-0b33-4f36-922e-85dc67f6a7cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.subscription_tiers
+    - field.field.block_content.subscription_tiers.subscription_tier_group
+  module:
+    - options
+id: block_content.subscription_tiers.default
+targetEntityType: block_content
+bundle: subscription_tiers
+mode: default
+content:
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  subscription_tier_group:
+    type: options_select
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

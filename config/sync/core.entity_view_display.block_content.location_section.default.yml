@@ -1,0 +1,71 @@
+uuid: 09a29856-a9f9-4283-b92b-7af479da847c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.location_section
+    - field.field.block_content.location_section.email
+    - field.field.block_content.location_section.mapa
+    - field.field.block_content.location_section.morada
+    - field.field.block_content.location_section.subtitulo
+    - field.field.block_content.location_section.titulo
+    - field.field.block_content.location_section.whatsapp
+  module:
+    - geofield
+    - text
+id: block_content.location_section.default
+targetEntityType: block_content
+bundle: location_section
+mode: default
+content:
+  email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  mapa:
+    type: geofield_default
+    label: above
+    settings:
+      output_format: wkt
+      output_escape: true
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  morada:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  subtitulo:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  titulo:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  whatsapp:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 16
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

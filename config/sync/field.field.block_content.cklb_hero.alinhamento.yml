@@ -1,0 +1,23 @@
+uuid: 26f9b0a3-10a7-4549-9fce-1384e362d971
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cklb_hero
+    - field.storage.block_content.alinhamento
+  module:
+    - options
+id: block_content.cklb_hero.alinhamento
+field_name: alinhamento
+entity_type: block_content
+bundle: cklb_hero
+label: Alinhamento
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: Centro
+default_value_callback: ''
+settings: {  }
+field_type: list_string

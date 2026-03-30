@@ -4,7 +4,7 @@
     "type": "drupal-recipe",
     "license": ["GPL-2.0-or-later"],
     "require": {
-        "drupal/commerce_shipping": "^2",
+        "drupal/commerce_shipping": "^2 || ^3",
         "drupal/commerce_recipe_core": "^1"
     }
 }

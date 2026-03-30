@@ -1,0 +1,23 @@
+uuid: 16c8f4f1-8558-48d8-947c-db6e0d284b2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_card_block
+    - field.storage.block_content.text_color
+  module:
+    - options
+id: block_content.cta_card_block.text_color
+field_name: text_color
+entity_type: block_content
+bundle: cta_card_block
+label: 'Cor de texto'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: dark
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall functions for Gen Zero Donations module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function gen_zero_donations_install(): void {
+  // Update the existing 'donation' order item type to use 'donation' order type.
+  $order_item_type = \Drupal::entityTypeManager()
+    ->getStorage('commerce_order_item_type')
+    ->load('donation');
+  if ($order_item_type) {
+    $order_item_type->setOrderTypeId('donation');
+    $order_item_type->save();
+    \Drupal::logger('gen_zero_donations')->notice('Updated donation order item type to use donation order type.');
+  }
+}

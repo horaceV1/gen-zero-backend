@@ -1,0 +1,12 @@
+name: 'Gen Zero Donations'
+type: module
+description: 'Headless donation system linked to projeto content type via REST API.'
+core_version_requirement: ^10.3 || ^11
+package: 'Gen Zero'
+dependencies:
+  - drupal:commerce_order
+  - drupal:commerce_price
+  - drupal:rest
+  - drupal:serialization
+  - drupal:node
+  - drupal:user

@@ -1,0 +1,29 @@
+uuid: b88068bd-5863-407c-992a-66e157099184
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.project_video
+    - media.type.video
+    - node.type.projeto
+id: node.projeto.project_video
+field_name: project_video
+entity_type: node
+bundle: projeto
+label: Video
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      video: video
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: remote_video
+field_type: entity_reference

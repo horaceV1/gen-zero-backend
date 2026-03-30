@@ -1,0 +1,24 @@
+uuid: 41e55967-1748-4bd6-b301-f454ce0ee1d5
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - gen_zero_donations
+    - jwt
+    - serialization
+    - user
+_core:
+  default_config_hash: 2CUMtc04tVlLx5vb-eVJStmqCarY8myMiT-RamQp0-s
+id: donation_resource
+plugin_id: donation_resource
+granularity: resource
+configuration:
+  methods:
+    - POST
+  formats:
+    - json
+  authentication:
+    - cookie
+    - basic_auth
+    - jwt_auth

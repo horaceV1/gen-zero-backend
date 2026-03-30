@@ -19,33 +19,33 @@ third_party_settings:
         - sku
         - list_price
         - price
+      label: Inventory
+      region: content
       parent_name: ''
       weight: 1
       format_type: fieldset
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
         description: ''
         required_fields: true
-      label: Inventory
     group_digital_download:
       children:
         - license_type
         - license_expiration
         - commerce_file
+      label: 'Digital Download'
+      region: content
       parent_name: ''
       weight: 5
       format_type: fieldset
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
         description: ''
         required_fields: true
-      label: 'Digital Download'
 _core:
   default_config_hash: EsiHPpKoo7sNeEBb2clschJ9L_28SjiyPDzhrGXo75I
 id: commerce_product_variation.media_license_download.default
@@ -56,22 +56,29 @@ content:
   commerce_file:
     type: file_generic
     weight: 8
+    region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
     region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   license_expiration:
     type: commerce_plugin_select
     weight: 7
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   license_type:
     type: commerce_plugin_radios
     weight: 6
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   list_price:
     type: commerce_list_price
     weight: 3
@@ -94,10 +101,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 9
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -108,11 +115,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   uk_tax_rate:
+    type: commerce_tax_rate_default
     weight: 92
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: commerce_tax_rate_default
-    region: content
 hidden:
   created: true
   uid: true

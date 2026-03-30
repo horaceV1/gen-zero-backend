@@ -1,0 +1,19 @@
+uuid: 56716890-f093-4a3a-9da5-a6b69bb57c4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_block
+    - field.storage.block_content.title
+id: block_content.hero_block.title
+field_name: title
+entity_type: block_content
+bundle: hero_block
+label: Titulo
+description: 'The main title for the hero.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

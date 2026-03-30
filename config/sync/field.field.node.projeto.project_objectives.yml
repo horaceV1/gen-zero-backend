@@ -1,0 +1,34 @@
+uuid: ad976288-3ec4-4977-83e2-e5415e740818
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.project_objectives
+    - node.type.projeto
+    - paragraphs.paragraphs_type.objective
+  module:
+    - entity_reference_revisions
+id: node.projeto.project_objectives
+field_name: project_objectives
+entity_type: node
+bundle: projeto
+label: 'Lista de objetivos'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      objective: objective
+    negate: 0
+    target_bundles_drag_drop:
+      galeria:
+        weight: 3
+        enabled: false
+      objective:
+        weight: 4
+        enabled: true
+field_type: entity_reference_revisions

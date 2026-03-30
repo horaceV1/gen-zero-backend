@@ -1,0 +1,20 @@
+uuid: aa1b1970-4930-468a-a586-50ad1e39861c
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+_core:
+  default_config_hash: UCP-OfOCTcNxMyDMnGvteIW8mKNSRRZWho4Sf0DGr8w
+id: commerce_order_item.field_monthly
+field_name: field_monthly
+entity_type: commerce_order_item
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

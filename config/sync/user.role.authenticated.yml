@@ -4,17 +4,24 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - filter.format.webform_default
+    - rest.resource.donation_resource
   module:
     - coffee
     - comment
     - commerce_checkout
+    - commerce_donation_flow
     - commerce_order
     - commerce_payment
     - commerce_product
     - file
     - filter
+    - gen_zero_donations
+    - geocoder
+    - geocoder_autocomplete
     - media
     - profile
+    - rest
     - system
 _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
@@ -27,20 +34,26 @@ permissions:
   - 'access coffee'
   - 'access comments'
   - 'access content'
+  - 'access geocoder api endpoints'
+  - 'access geocoder autocomplete'
   - 'administer commerce_order'
   - 'administer profile'
   - 'create customer profile'
+  - 'create donations'
   - 'create shipping profile'
   - 'delete own customer profile'
   - 'delete own files'
   - 'delete own shipping profile'
+  - 'make donation'
   - 'manage default commerce_order_item'
   - 'manage own commerce_payment_method'
   - 'post comments'
+  - 'restful post donation_resource'
   - 'skip comment approval'
   - 'update own customer profile'
   - 'update own shipping profile'
   - 'use text format basic_html'
+  - 'use text format webform_default'
   - 'view commerce_product'
   - 'view media'
   - 'view own commerce_order'

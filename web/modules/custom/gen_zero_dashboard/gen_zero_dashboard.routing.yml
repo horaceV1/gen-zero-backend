@@ -1,0 +1,7 @@
+gen_zero_dashboard.admin:
+  path: '/admin/dashboard'
+  defaults:
+    _controller: '\Drupal\gen_zero_dashboard\Controller\DashboardController::dashboard'
+    _title: 'Painel de Controlo'
+  requirements:
+    _permission: 'access administration pages'

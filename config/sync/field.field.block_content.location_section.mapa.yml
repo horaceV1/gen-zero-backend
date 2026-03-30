@@ -1,0 +1,39 @@
+uuid: 6943c7d9-a2fa-40f1-9397-e1ac782b6152
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.location_section
+    - field.storage.block_content.mapa
+  module:
+    - geocoder_field
+    - geofield
+third_party_settings:
+  geocoder_field:
+    method: geocode
+    weight: 0
+    field: info
+    skip_not_empty_value: false
+    disabled: false
+    hidden: false
+    providers:
+      - nominatim
+      - openstreetmap
+    dumper: wkt
+    delta_handling: s_to_m
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: block_content.location_section.mapa
+field_name: mapa
+entity_type: block_content
+bundle: location_section
+label: Mapa
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geofield

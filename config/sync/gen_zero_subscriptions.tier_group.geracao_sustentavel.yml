@@ -1,0 +1,8 @@
+uuid: c14ee51c-bd38-4f6b-9601-6cd511ba0440
+langcode: en
+status: true
+dependencies: {  }
+id: geracao_sustentavel
+label: 'Geração Sustentável'
+description: 'A GenZero quer ajudar todos, uma mudança de cada vez, junte-se à mudança.'
+weight: 0

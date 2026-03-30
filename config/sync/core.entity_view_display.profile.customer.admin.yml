@@ -27,4 +27,5 @@ content:
     weight: 0
     region: content
 hidden:
+  search_api_excerpt: true
   tax_number: true

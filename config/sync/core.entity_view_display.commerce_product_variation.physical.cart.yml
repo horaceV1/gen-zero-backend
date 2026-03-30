@@ -5,6 +5,7 @@ dependencies:
   config:
     - commerce_product.commerce_product_variation_type.physical
     - core.entity_view_mode.commerce_product_variation.cart
+    - field.field.commerce_product_variation.physical.quantidade_em_gramas_de_plastico
     - field.field.commerce_product_variation.physical.weight
 _core:
   default_config_hash: YQ_35Qk21GzEgX1KmzQ5oL2oA_fsgQTXDZCbXELH-1E
@@ -15,24 +16,26 @@ mode: cart
 content:
   product_id:
     type: entity_reference_label
-    weight: 0
-    region: content
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
+    weight: 0
+    region: content
   sku:
     type: string
-    weight: 1
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   commerce_variation_cart_form: true
+  langcode: true
   list_price: true
   price: true
+  quantidade_em_gramas_de_plastico: true
   search_api_excerpt: true
   title: true
   weight: true

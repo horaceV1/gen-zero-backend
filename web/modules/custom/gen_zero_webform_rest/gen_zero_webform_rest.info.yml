@@ -1,0 +1,8 @@
+name: 'Gen Zero Webform REST'
+type: module
+description: 'REST endpoint for headless webform submissions.'
+core_version_requirement: ^10 || ^11
+package: Custom
+dependencies:
+  - drupal:rest
+  - drupal:webform

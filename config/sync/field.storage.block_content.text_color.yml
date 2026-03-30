@@ -1,0 +1,27 @@
+uuid: 59dea2be-65a9-4de9-858d-7f80260e0e7e
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.text_color
+field_name: text_color
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: light
+      label: Claro
+    -
+      value: dark
+      label: Escuro
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Install and update functions for gen_zero_subscriptions module.
+ */
+
+/**
+ * Install the user_subscription entity type.
+ */
+function gen_zero_subscriptions_update_10001(): void {
+  $entity_type = \Drupal::entityTypeManager()->getDefinition('user_subscription');
+  \Drupal::entityDefinitionUpdateManager()->installEntityType($entity_type);
+}

@@ -1,0 +1,30 @@
+uuid: 00e0333c-6c6f-47d3-b359-a74baa6eaf0b
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.cor
+field_name: cor
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Green
+      label: Verde
+    -
+      value: Blue
+      label: Azul
+    -
+      value: Yellow
+      label: Amarelo
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_variation_type.physical
+    - field.field.commerce_product_variation.physical.quantidade_em_gramas_de_plastico
     - field.field.commerce_product_variation.physical.weight
   module:
     - commerce_price
@@ -15,25 +16,35 @@ bundle: physical
 mode: default
 content:
   list_price:
-    label: inline
     type: commerce_price_default
+    label: inline
+    settings:
+      strip_trailing_zeroes: false
+      currency_display: symbol
+    third_party_settings: {  }
     weight: -1
     region: content
+  price:
+    type: commerce_price_default
+    label: visually_hidden
     settings:
       strip_trailing_zeroes: false
       currency_display: symbol
     third_party_settings: {  }
-  price:
-    label: visually_hidden
-    type: commerce_price_default
     weight: 0
     region: content
+  quantidade_em_gramas_de_plastico:
+    type: number_integer
+    label: above
     settings:
-      strip_trailing_zeroes: false
-      currency_display: symbol
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   commerce_variation_cart_form: true
+  langcode: true
   product_id: true
   search_api_excerpt: true
   sku: true

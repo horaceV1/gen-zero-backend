@@ -1,0 +1,19 @@
+uuid: 72ea1186-5b3a-4d1a-9065-ae1d95d84ce8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_imagem
+    - field.storage.block_content.button_text
+id: block_content.cta_imagem.button_text
+field_name: button_text
+entity_type: block_content
+bundle: cta_imagem
+label: 'Texto do Botão'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

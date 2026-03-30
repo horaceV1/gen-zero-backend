@@ -1,0 +1,23 @@
+uuid: 5504039f-a1a3-4513-88eb-ed523787afd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.telefone
+    - node.type.information
+id: node.information.telefone
+field_name: telefone
+entity_type: node
+bundle: information
+label: Telefone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 9
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

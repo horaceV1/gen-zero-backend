@@ -1,0 +1,13 @@
+gen_zero_subscriptions:
+  admin:
+    title: Subscrições
+    description: 'Gerir níveis e grupos de níveis de subscrição.'
+  tier_groups:
+    title: 'Grupos de Níveis'
+    description: 'Gerir grupos de níveis de subscrição.'
+  tiers:
+    title: Níveis
+    description: 'Gerir níveis de subscrição.'
+  user_subscriptions:
+    title: 'Subscrições de Utilizadores'
+    description: 'Ver e gerir subscrições ativas de utilizadores.'

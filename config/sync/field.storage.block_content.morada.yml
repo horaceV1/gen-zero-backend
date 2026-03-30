@@ -1,0 +1,21 @@
+uuid: 6efb4fa0-f2ed-44ac-9139-3616bd848f0d
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.morada
+field_name: morada
+entity_type: block_content
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

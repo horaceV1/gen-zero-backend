@@ -27,6 +27,7 @@ content:
     region: content
 hidden:
   created: true
+  langcode: true
   media_protected_file: true
   name: true
   search_api_excerpt: true

@@ -12,6 +12,9 @@ config:
     commerce_shipping: '*'
     physical: '*'
   actions:
+    commerce_checkout.commerce_checkout_flow.shipping:
+      simpleConfigUpdate:
+        configuration.panes.order_summary.view: commerce_checkout_order_summary
     commerce_order.commerce_order_type.default:
       setThirdPartySettings:
         - module: commerce_checkout
@@ -20,15 +23,32 @@ config:
         - module: commerce_shipping
           key: shipment_type
           value: default
-    commerce_checkout.commerce_checkout_flow.shipping:
+    commerce_shipping.commerce_shipment_type.default:
       simpleConfigUpdate:
-        configuration.panes.order_summary.view: commerce_checkout_order_summary
+        profileType: shipping
+        sendConfirmation: true
+    core.entity_view_display.commerce_order.default.default:
+      setComponent:
+        name: shipments
+        options:
+          type: commerce_shipping_information
+          label: hidden
+          settings: {  }
+          third_party_settings: {  }
+          weight: 14
+          region: content
+    core.entity_view_display.commerce_order.default.user:
+      setComponent:
+        name: shipments
+        options:
+          type: commerce_shipping_information
+          label: hidden
+          settings: {  }
+          third_party_settings: {  }
+          weight: 10
+          region: content
     profile.type.shipping:
       setThirdPartySettings:
         - module: commerce_order
           key: customer_profile_type
           value: true
-    commerce_shipping.commerce_shipment_type.default:
-      simpleConfigUpdate:
-        profileType: shipping
-        sendConfirmation: true

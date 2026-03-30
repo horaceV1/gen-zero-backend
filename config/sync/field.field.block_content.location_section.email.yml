@@ -1,0 +1,19 @@
+uuid: 299402ef-c18d-450f-84e7-4e7177efb3fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.location_section
+    - field.storage.block_content.email
+id: block_content.location_section.email
+field_name: email
+entity_type: block_content
+bundle: location_section
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

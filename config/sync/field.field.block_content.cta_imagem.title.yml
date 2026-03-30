@@ -1,0 +1,19 @@
+uuid: 7031b12d-8842-46cc-b069-a5a81713b9a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_imagem
+    - field.storage.block_content.title
+id: block_content.cta_imagem.title
+field_name: title
+entity_type: block_content
+bundle: cta_imagem
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

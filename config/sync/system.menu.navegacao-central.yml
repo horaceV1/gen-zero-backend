@@ -1,0 +1,8 @@
+uuid: c0de1e30-ea71-4f8a-abbe-a2204e8b474f
+langcode: en
+status: true
+dependencies: {  }
+id: navegacao-central
+label: 'Navegação Central'
+description: ''
+locked: false

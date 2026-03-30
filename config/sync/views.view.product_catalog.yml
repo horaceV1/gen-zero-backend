@@ -350,9 +350,10 @@ display:
       path: products
       menu:
         type: normal
-        title: 'All products'
+        title: Produtos
         description: ''
         weight: 0
+        enabled: true
         expanded: false
         menu_name: main
         parent: ''
@@ -360,13 +361,13 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'facets_filter:f'
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
-        - url.site
       tags:
         - 'config:facets.facet.product_brand'
         - 'config:facets.facet.product_collections'

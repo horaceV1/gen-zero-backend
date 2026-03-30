@@ -1,0 +1,21 @@
+uuid: 453513bc-c18e-477d-a65f-b4e8b454d549
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_block
+    - field.storage.block_content.imagem
+id: block_content.hero_block.imagem
+field_name: imagem
+entity_type: block_content
+bundle: hero_block
+label: Imagem
+description: 'Background or featured image for the hero.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings: {  }
+field_type: entity_reference

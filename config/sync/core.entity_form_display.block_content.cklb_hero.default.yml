@@ -4,7 +4,10 @@ status: true
 dependencies:
   config:
     - block_content.type.cklb_hero
-    - field.field.block_content.cklb_hero.cklb_cta
+    - field.field.block_content.cklb_hero.alinhamento
+    - field.field.block_content.cklb_hero.bg_color
+    - field.field.block_content.cklb_hero.button_link
+    - field.field.block_content.cklb_hero.button_text
     - field.field.block_content.cklb_hero.cklb_subtitle
     - field.field.block_content.cklb_hero.cklb_text
     - field.field.block_content.cklb_hero.cklb_title
@@ -18,17 +21,37 @@ targetEntityType: block_content
 bundle: cklb_hero
 mode: default
 content:
-  cklb_cta:
+  alinhamento:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  bg_color:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  button_link:
     type: link_default
-    weight: 4
+    weight: 5
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
+  button_text:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   cklb_subtitle:
     type: string_textfield
-    weight: 2
+    weight: 3
     region: content
     settings:
       size: 60
@@ -36,7 +59,7 @@ content:
     third_party_settings: {  }
   cklb_text:
     type: text_textarea
-    weight: 3
+    weight: 2
     region: content
     settings:
       rows: 5
@@ -57,5 +80,12 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
 hidden: {  }

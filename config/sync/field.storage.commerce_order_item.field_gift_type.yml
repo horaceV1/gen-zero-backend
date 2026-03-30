@@ -1,0 +1,29 @@
+uuid: 9bde6fd6-89f0-4b17-bd0b-fb5b376f9d3c
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+    - options
+_core:
+  default_config_hash: rzsjENB0i2iRv867orDj1EygNaMqhoGfUw1ST9lDihg
+id: commerce_order_item.field_gift_type
+field_name: field_gift_type
+entity_type: commerce_order_item
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: single
+      label: Once
+    -
+      value: recurring
+      label: Monthly
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

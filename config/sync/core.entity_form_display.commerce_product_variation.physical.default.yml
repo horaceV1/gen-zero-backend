@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_variation_type.physical
+    - field.field.commerce_product_variation.physical.quantidade_em_gramas_de_plastico
     - field.field.commerce_product_variation.physical.weight
   module:
     - commerce_price
@@ -16,31 +17,31 @@ third_party_settings:
         - sku
         - list_price
         - price
+      label: Inventory
+      region: content
       parent_name: ''
       weight: 0
       format_type: fieldset
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
         description: ''
         required_fields: true
-      label: Inventory
     group_shipping:
       children:
         - weight
+      label: Shipping
+      region: content
       parent_name: ''
       weight: 2
       format_type: fieldset
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
         description: ''
         required_fields: true
-      label: Shipping
 _core:
   default_config_hash: pfCe3PwEV7uVsZq8ICEkspO4FBD5WCJR1h8EfTSf1FU
 id: commerce_product_variation.physical.default
@@ -48,6 +49,13 @@ targetEntityType: commerce_product_variation
 bundle: physical
 mode: default
 content:
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   list_price:
     type: commerce_list_price
     weight: 2
@@ -60,6 +68,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  quantidade_em_gramas_de_plastico:
+    type: number
+    weight: 9
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   sku:
     type: string_textfield
     weight: 1
@@ -70,10 +85,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 5
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   weight:
     type: physical_measurement_default

@@ -1,0 +1,23 @@
+uuid: 420bf02d-bf9e-4f61-8823-310af900826d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.alcancado
+    - paragraphs.paragraphs_type.objective
+id: paragraph.objective.alcancado
+field_name: alcancado
+entity_type: paragraph
+bundle: objective
+label: Alcançado
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Sim
+  off_label: Não
+field_type: boolean

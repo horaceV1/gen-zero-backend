@@ -1,0 +1,12 @@
+'administer subscriptions':
+  title: 'Administrar subscrições'
+  description: 'Gerir grupos de níveis de subscrição, níveis e definições.'
+'view subscription tiers':
+  title: 'Ver níveis de subscrição'
+  description: 'Ver níveis de subscrição disponíveis através da API REST.'
+'create subscriptions':
+  title: 'Criar subscrições'
+  description: 'Permite que os utilizadores criem subscrições através da API REST.'
+'manage own subscription':
+  title: 'Gerir subscrição própria'
+  description: 'Permite que os utilizadores vejam, pausem ou cancelem as suas subscrições.'

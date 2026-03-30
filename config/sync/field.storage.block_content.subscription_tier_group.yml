@@ -1,0 +1,21 @@
+uuid: 0318365d-633d-4ce9-b81e-b7f8736a340e
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.subscription_tier_group
+field_name: subscription_tier_group
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: gen_zero_subscriptions_tier_group_allowed_values
+module: options
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

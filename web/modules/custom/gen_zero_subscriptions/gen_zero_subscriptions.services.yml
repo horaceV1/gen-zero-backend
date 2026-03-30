@@ -1,0 +1,12 @@
+services:
+  gen_zero_subscriptions.subscription_manager:
+    class: Drupal\gen_zero_subscriptions\SubscriptionManager
+    arguments:
+      - '@entity_type.manager'
+      - '@current_user'
+      - '@logger.factory'
+      - '@plugin.manager.subscription_payment_gateway'
+
+  plugin.manager.subscription_payment_gateway:
+    class: Drupal\gen_zero_subscriptions\SubscriptionPaymentGatewayManager
+    parent: default_plugin_manager

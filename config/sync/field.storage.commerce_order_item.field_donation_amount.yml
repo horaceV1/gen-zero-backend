@@ -1,0 +1,21 @@
+uuid: c077287b-aee5-4fea-8bf5-d9e3fde14e9a
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+    - commerce_price
+_core:
+  default_config_hash: 9TOHep4fhdArk2xan9J8SyjR4n1HRypyAm1I1m0OSuk
+id: commerce_order_item.field_donation_amount
+field_name: field_donation_amount
+entity_type: commerce_order_item
+type: commerce_price
+settings: {  }
+module: commerce_price
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

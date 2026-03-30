@@ -1,0 +1,10 @@
+uuid: 081e6583-ee96-406a-8218-952d364f09d2
+langcode: en
+status: true
+dependencies: {  }
+id: image
+label: Imagem
+icon_uuid: null
+icon_default: null
+description: 'Colocar uma imagem.'
+behavior_plugins: {  }

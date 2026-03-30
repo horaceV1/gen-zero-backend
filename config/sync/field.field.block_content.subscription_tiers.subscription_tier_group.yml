@@ -1,0 +1,21 @@
+uuid: ec7ebf5a-ae73-44ca-80f0-990b8dd10bfb
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.subscription_tiers
+    - field.storage.block_content.subscription_tier_group
+  module:
+    - options
+id: block_content.subscription_tiers.subscription_tier_group
+field_name: subscription_tier_group
+entity_type: block_content
+bundle: subscription_tiers
+label: 'Grupo de Subscrição'
+description: 'Select the subscription tier group to display. Leave empty to display all groups.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

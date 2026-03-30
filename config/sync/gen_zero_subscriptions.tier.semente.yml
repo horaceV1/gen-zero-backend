@@ -1,0 +1,16 @@
+uuid: 58a23d4f-612d-4fb7-b089-e0132b8abc6f
+langcode: en
+status: true
+dependencies: {  }
+id: semente
+label: Semente
+group: geracao_sustentavel
+price: '5'
+currency: EUR
+billing_period: monthly
+description: 'Mesmo que pequena, a sua ajuda pode mudar vidas.'
+benefits:
+  - 'beneficio 1'
+badge_label: Semente
+product_variation_id: 57
+weight: 0

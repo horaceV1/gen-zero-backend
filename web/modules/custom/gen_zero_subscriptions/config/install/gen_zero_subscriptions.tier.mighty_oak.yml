@@ -1,0 +1,15 @@
+id: mighty_oak
+label: 'Mighty Oak'
+group: general_support
+price: '50.00'
+currency: EUR
+billing_period: monthly
+description: 'Your €50 plants 10 native trees that will absorb 220 kg of CO₂ annually and provide habitat for local wildlife for decades to come.'
+benefits:
+  - 'Early Access to Vlog'
+  - 'Sneak Peek of the Upcoming Vlog'
+  - 'All Videos Ad-Free'
+badge_label: 'Legend'
+product_variation_id: null
+weight: 3
+status: true

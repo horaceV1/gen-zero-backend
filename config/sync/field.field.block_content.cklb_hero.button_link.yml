@@ -1,0 +1,23 @@
+uuid: b96e2b11-2c78-4fc7-924e-aed83a757faf
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cklb_hero
+    - field.storage.block_content.button_link
+  module:
+    - link
+id: block_content.cklb_hero.button_link
+field_name: button_link
+entity_type: block_content
+bundle: cklb_hero
+label: 'Link do botão'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

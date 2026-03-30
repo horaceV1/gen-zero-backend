@@ -6,9 +6,12 @@ dependencies:
     - commerce_product.commerce_product_type.physical
     - core.entity_view_mode.commerce_product.teaser
     - field.field.commerce_product.physical.body
+    - field.field.commerce_product.physical.ecosystem
     - field.field.commerce_product.physical.images
     - field.field.commerce_product.physical.layout_builder__layout
     - field.field.commerce_product.physical.model_three_js
+    - field.field.commerce_product.physical.origem
+    - field.field.commerce_product.physical.pontos
     - field.field.commerce_product.physical.product_brand
     - field.field.commerce_product.physical.product_collections
     - field.field.commerce_product.physical.product_tags
@@ -45,8 +48,12 @@ content:
 hidden:
   body: true
   created: true
+  ecosystem: true
+  langcode: true
   layout_builder__layout: true
   model_three_js: true
+  origem: true
+  pontos: true
   product_brand: true
   product_collections: true
   product_tags: true

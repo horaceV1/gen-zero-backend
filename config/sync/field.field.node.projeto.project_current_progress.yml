@@ -1,0 +1,23 @@
+uuid: 8b1ac1ca-f15e-437b-84c2-37856dddaddf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.project_current_progress
+    - node.type.projeto
+id: node.projeto.project_current_progress
+field_name: project_current_progress
+entity_type: node
+bundle: projeto
+label: Progresso
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: null
+  prefix: ''
+  suffix: €
+field_type: decimal

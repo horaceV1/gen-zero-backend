@@ -1,0 +1,9 @@
+uuid: eacf7ffb-2bcc-4be8-bc01-8ac9254b20da
+langcode: en
+status: true
+dependencies: {  }
+name: Origem
+vid: origem
+description: 'De onde vem o plástico.'
+weight: 0
+new_revision: false

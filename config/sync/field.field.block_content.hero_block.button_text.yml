@@ -1,0 +1,19 @@
+uuid: 363a5932-0174-4da4-9326-10ac8057a576
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_block
+    - field.storage.block_content.button_text
+id: block_content.hero_block.button_text
+field_name: button_text
+entity_type: block_content
+bundle: hero_block
+label: 'Texto do Botão'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

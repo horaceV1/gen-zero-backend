@@ -1,0 +1,20 @@
+uuid: 0c105a3c-5104-493d-8ddd-008c764c3df7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.whatsapp
+field_name: whatsapp
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

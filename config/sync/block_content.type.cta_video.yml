@@ -1,0 +1,8 @@
+uuid: ca03fa19-e23a-4587-b4aa-248f21f4760f
+langcode: en
+status: true
+dependencies: {  }
+id: cta_video
+label: 'CTA video'
+revision: false
+description: null

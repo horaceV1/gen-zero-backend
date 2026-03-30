@@ -1,0 +1,20 @@
+uuid: 033f498c-7439-441e-8f60-a537c8f903cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.project_goal
+field_name: project_goal
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

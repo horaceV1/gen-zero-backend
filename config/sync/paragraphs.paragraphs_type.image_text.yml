@@ -1,0 +1,10 @@
+uuid: 6f3f59d8-3859-4d47-8ba8-c473460d5c48
+langcode: en
+status: true
+dependencies: {  }
+id: image_text
+label: 'imagem e Texto'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

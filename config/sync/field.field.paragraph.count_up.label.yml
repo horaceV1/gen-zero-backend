@@ -1,0 +1,19 @@
+uuid: 399ef3c6-843a-4b0b-a007-e14ada30c483
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.label
+    - paragraphs.paragraphs_type.count_up
+id: paragraph.count_up.label
+field_name: label
+entity_type: paragraph
+bundle: count_up
+label: Rótulo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

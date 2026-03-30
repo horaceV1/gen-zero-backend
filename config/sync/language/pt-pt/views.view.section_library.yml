@@ -1,0 +1,59 @@
+display:
+  default:
+    display_title: Principal
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filtro
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        options:
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« Primeira'
+            last: 'Última »'
+          expose:
+            items_per_page_label: 'Itens por página'
+            items_per_page_options_all_label: '- Todos -'
+            offset_label: Deslocamento
+      fields:
+        id:
+          label: ID
+          separator: ', '
+        image__target_id:
+          label: Imagem
+          separator: ', '
+        label:
+          label: Etiqueta
+          separator: ', '
+        type:
+          label: Tipo
+          separator: ', '
+        entity_id:
+          separator: ', '
+        created:
+          label: Criado
+          separator: ', '
+        changed:
+          label: Alterado
+          separator: ', '
+        user_id:
+          label: 'Criado por'
+          separator: ', '
+        operations:
+          label: 'Ligações de operações'
+      filters:
+        label:
+          expose:
+            label: Etiqueta
+        type:
+          expose:
+            label: Tipo
+          group_info:
+            label: Tipo
+  page_section_library:
+    display_title: Página

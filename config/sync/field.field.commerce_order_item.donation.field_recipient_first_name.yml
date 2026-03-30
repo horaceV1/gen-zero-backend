@@ -1,0 +1,21 @@
+uuid: 8edcba6a-2981-4c01-8d61-8e9f3a2b5e1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.donation
+    - field.storage.commerce_order_item.field_recipient_first_name
+_core:
+  default_config_hash: toNxmZmAeG7WgJ__xzd4f_Pd1qISBe6FBHeC2lfM5Wc
+id: commerce_order_item.donation.field_recipient_first_name
+field_name: field_recipient_first_name
+entity_type: commerce_order_item
+bundle: donation
+label: 'First Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

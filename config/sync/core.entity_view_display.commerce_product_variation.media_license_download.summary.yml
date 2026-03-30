@@ -26,6 +26,7 @@ content:
 hidden:
   commerce_file: true
   commerce_variation_cart_form: true
+  langcode: true
   license_expiration: true
   license_type: true
   list_price: true

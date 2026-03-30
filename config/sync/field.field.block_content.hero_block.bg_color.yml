@@ -1,0 +1,21 @@
+uuid: 8496d051-8e2f-4507-987a-ffd5a0d4ed48
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_block
+    - field.storage.block_content.bg_color
+  module:
+    - options
+id: block_content.hero_block.bg_color
+field_name: bg_color
+entity_type: block_content
+bundle: hero_block
+label: 'Cor de fundo'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

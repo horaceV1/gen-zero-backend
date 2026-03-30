@@ -1,0 +1,20 @@
+uuid: 2a68c2a8-6f82-411e-bbf3-16db5dc6d26f
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.pontos
+field_name: pontos
+entity_type: commerce_product
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

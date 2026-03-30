@@ -1,0 +1,13 @@
+content:
+  field_honoree_first:
+    settings:
+      placeholder: 'Primeiro Nome'
+  field_honoree_last:
+    settings:
+      placeholder: 'Último Nome'
+  field_recipient_first_name:
+    settings:
+      placeholder: 'Primeiro Nome'
+  field_recipient_last_name:
+    settings:
+      placeholder: 'Último Nome'

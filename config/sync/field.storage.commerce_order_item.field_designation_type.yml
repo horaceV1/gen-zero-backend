@@ -1,0 +1,29 @@
+uuid: 3a9c3ecf-b13b-442d-8574-09f33e923b8e
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+    - options
+_core:
+  default_config_hash: D4aP8oriQvtWJiGPm1tmZVep06Nnfdr_bDwoT673ZsA
+id: commerce_order_item.field_designation_type
+field_name: field_designation_type
+entity_type: commerce_order_item
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: honor
+      label: 'In Honor of'
+    -
+      value: memorial
+      label: 'In Memory of'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

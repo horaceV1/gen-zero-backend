@@ -1,0 +1,99 @@
+uuid: 19f98a36-acba-4008-a139-5064d29c5656
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.frontpage_hero
+    - field.field.block_content.frontpage_hero.button_link
+    - field.field.block_content.frontpage_hero.button_text
+    - field.field.block_content.frontpage_hero.carousel
+    - field.field.block_content.frontpage_hero.count_up
+    - field.field.block_content.frontpage_hero.secondary_btn_link
+    - field.field.block_content.frontpage_hero.secondary_btn_text
+    - field.field.block_content.frontpage_hero.subtitulo
+    - field.field.block_content.frontpage_hero.titulo
+  module:
+    - entity_reference_revisions
+    - link
+    - text
+id: block_content.frontpage_hero.default
+targetEntityType: block_content
+bundle: frontpage_hero
+mode: default
+content:
+  button_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  button_text:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  carousel:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  count_up:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  secondary_btn_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  secondary_btn_text:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  subtitulo:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  titulo:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 12
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

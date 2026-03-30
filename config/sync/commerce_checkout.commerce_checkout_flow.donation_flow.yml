@@ -1,0 +1,61 @@
+uuid: 51c025a6-6654-4309-bdb8-c69dc25c3bcc
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_donation_flow
+    - commerce_payment
+_core:
+  default_config_hash: F0kSVUuDZPcYf9M5AShqAqH4yaibXumSyHtbyTGdlVo
+id: donation_flow
+label: 'Donation Flow'
+plugin: donation_checkout_flow
+configuration:
+  display_checkout_progress: true
+  display_checkout_progress_breadcrumb_links: false
+  display_sidebar_checkout_complete: false
+  guest_order_assign: false
+  guest_new_account: false
+  guest_new_account_notify: false
+  panes:
+    commerce_donation_pane:
+      step: donation
+      weight: 0
+      message: ''
+    commerce_memorial_pane:
+      step: dedication
+      weight: 1
+    payment_information:
+      step: billing
+      weight: 3
+    payment_process:
+      capture: true
+      step: payment
+      weight: 4
+    donation_thank_you:
+      step: complete
+      weight: 5
+    completion_message:
+      step: _disabled
+      weight: 6
+    order_summary:
+      view: ''
+      step: _disabled
+      weight: 7
+    completion_register:
+      step: _disabled
+      weight: 8
+    login:
+      allow_guest_checkout: true
+      allow_registration: false
+      step: _disabled
+      weight: 9
+    review:
+      step: _disabled
+      weight: 10
+    contact_information:
+      double_entry: true
+      step: billing
+      weight: 2
+  offline_link_title: ''
+  offline_link_url: ''

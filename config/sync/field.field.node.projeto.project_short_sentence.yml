@@ -1,0 +1,19 @@
+uuid: a7c634e0-fa28-4321-ad38-ec91f73422eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.project_short_sentence
+    - node.type.projeto
+id: node.projeto.project_short_sentence
+field_name: project_short_sentence
+entity_type: node
+bundle: projeto
+label: 'Frase Curta'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

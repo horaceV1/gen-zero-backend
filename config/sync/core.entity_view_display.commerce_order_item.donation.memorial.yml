@@ -1,0 +1,70 @@
+uuid: 0134e637-475e-42b3-bec6-27aa4fac439e
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.donation
+    - core.entity_view_mode.commerce_order_item.memorial
+    - field.field.commerce_order_item.donation.field_card_email
+    - field.field.commerce_order_item.donation.field_designated
+    - field.field.commerce_order_item.donation.field_designation_type
+    - field.field.commerce_order_item.donation.field_donation_amount
+    - field.field.commerce_order_item.donation.field_gift_type
+    - field.field.commerce_order_item.donation.field_honoree_first
+    - field.field.commerce_order_item.donation.field_honoree_last
+    - field.field.commerce_order_item.donation.field_message
+    - field.field.commerce_order_item.donation.field_monthly
+    - field.field.commerce_order_item.donation.field_notify
+    - field.field.commerce_order_item.donation.field_recipient_first_name
+    - field.field.commerce_order_item.donation.field_recipient_last_name
+    - field.field.commerce_order_item.donation.field_recurring_begins
+  module:
+    - options
+_core:
+  default_config_hash: z89uESwssLn4F6XHGmC_UrYux_DEJa-puwq0DkQFlEU
+id: commerce_order_item.donation.memorial
+targetEntityType: commerce_order_item
+bundle: donation
+mode: memorial
+content:
+  field_designation_type:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_honoree_first:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_honoree_last:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  adjustments: true
+  created: true
+  field_card_email: true
+  field_designated: true
+  field_donation_amount: true
+  field_gift_type: true
+  field_message: true
+  field_monthly: true
+  field_notify: true
+  field_recipient_first_name: true
+  field_recipient_last_name: true
+  field_recurring_begins: true
+  quantity: true
+  search_api_excerpt: true
+  title: true
+  total_price: true
+  unit_price: true

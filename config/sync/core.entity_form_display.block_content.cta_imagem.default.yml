@@ -1,0 +1,91 @@
+uuid: 1b7554fb-5f58-4468-8b77-900567ef9c1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_imagem
+    - field.field.block_content.cta_imagem.bg_color
+    - field.field.block_content.cta_imagem.body
+    - field.field.block_content.cta_imagem.button_link
+    - field.field.block_content.cta_imagem.button_text
+    - field.field.block_content.cta_imagem.imagem
+    - field.field.block_content.cta_imagem.title
+    - field.field.block_content.cta_imagem.video_position
+  module:
+    - link
+    - media_library
+    - text
+id: block_content.cta_imagem.default
+targetEntityType: block_content
+bundle: cta_imagem
+mode: default
+content:
+  bg_color:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  body:
+    type: text_textarea_with_summary
+    weight: 3
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  button_link:
+    type: link_default
+    weight: 5
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  button_text:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  imagem:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  video_position:
+    type: options_select
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

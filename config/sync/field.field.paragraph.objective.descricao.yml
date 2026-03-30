@@ -1,0 +1,19 @@
+uuid: 3a20ef43-4926-46cf-8d2b-c41d133f46a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.descricao
+    - paragraphs.paragraphs_type.objective
+id: paragraph.objective.descricao
+field_name: descricao
+entity_type: paragraph
+bundle: objective
+label: Descrição
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

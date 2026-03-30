@@ -1,0 +1,23 @@
+uuid: f9c0a2f7-9784-4099-a3da-2a68d3b49982
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.project_goal
+    - node.type.projeto
+id: node.projeto.project_goal
+field_name: project_goal
+entity_type: node
+bundle: projeto
+label: Meta
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: null
+  prefix: ''
+  suffix: €
+field_type: decimal

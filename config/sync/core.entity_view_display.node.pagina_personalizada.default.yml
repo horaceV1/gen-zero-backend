@@ -1,0 +1,41 @@
+uuid: 66e077cc-572c-47c3-a886-2d9676c47880
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.pagina_personalizada.blocos
+    - field.field.node.pagina_personalizada.pagina_principal
+    - node.type.pagina_personalizada
+  module:
+    - user
+id: node.pagina_personalizada.default
+targetEntityType: node
+bundle: pagina_personalizada
+mode: default
+content:
+  blocos:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  pagina_principal:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

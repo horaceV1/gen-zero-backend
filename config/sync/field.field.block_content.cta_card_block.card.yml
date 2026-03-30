@@ -1,0 +1,37 @@
+uuid: 1a03c2d2-bf96-453c-9c4f-7f0ec3b8b267
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_card_block
+    - field.storage.block_content.card
+    - paragraphs.paragraphs_type.card
+  module:
+    - entity_reference_revisions
+id: block_content.cta_card_block.card
+field_name: card
+entity_type: block_content
+bundle: cta_card_block
+label: Cards
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      card: card
+    negate: 0
+    target_bundles_drag_drop:
+      card:
+        weight: 4
+        enabled: true
+      image:
+        weight: 5
+        enabled: false
+      objective:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

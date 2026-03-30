@@ -1,0 +1,23 @@
+uuid: edcff68c-4a7a-4a43-8c82-be4bdeb0dd00
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_video
+    - field.storage.block_content.bg_color
+  module:
+    - options
+id: block_content.cta_video.bg_color
+field_name: bg_color
+entity_type: block_content
+bundle: cta_video
+label: 'Cor de fundo'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: white
+default_value_callback: ''
+settings: {  }
+field_type: list_string

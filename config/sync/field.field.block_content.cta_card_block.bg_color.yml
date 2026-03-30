@@ -1,0 +1,23 @@
+uuid: c93e3d99-7ead-44bf-8dcb-4c2a26a06713
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_card_block
+    - field.storage.block_content.bg_color
+  module:
+    - options
+id: block_content.cta_card_block.bg_color
+field_name: bg_color
+entity_type: block_content
+bundle: cta_card_block
+label: 'Cor de fundo'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: white
+default_value_callback: ''
+settings: {  }
+field_type: list_string

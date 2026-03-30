@@ -1,0 +1,21 @@
+uuid: b8673518-229a-40d4-a8b9-014d26c26c5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.project_final_date
+    - node.type.projeto
+  module:
+    - datetime
+id: node.projeto.project_final_date
+field_name: project_final_date
+entity_type: node
+bundle: projeto
+label: 'Data Final'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

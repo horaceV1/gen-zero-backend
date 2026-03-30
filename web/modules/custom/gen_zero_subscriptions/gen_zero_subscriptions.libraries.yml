@@ -1,0 +1,7 @@
+subscription_tiers_block:
+  version: 1.x
+  js:
+    js/subscription-tiers-block.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings

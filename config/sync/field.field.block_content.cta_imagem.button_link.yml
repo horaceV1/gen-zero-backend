@@ -1,0 +1,23 @@
+uuid: 90d5f9c6-2837-4ce8-a07c-6838c5a7b05a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_imagem
+    - field.storage.block_content.button_link
+  module:
+    - link
+id: block_content.cta_imagem.button_link
+field_name: button_link
+entity_type: block_content
+bundle: cta_imagem
+label: 'Link do botão'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

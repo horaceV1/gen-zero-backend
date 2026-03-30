@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Admin dashboard template.
+ *
+ * Variables:
+ * - stats: Array of stat cards (label, count, icon, url).
+ * - sections: Array of dashboard sections with links.
+ */
+#}
+<div class="gz-dashboard">
+
+  {# --- Stats overview --- #}
+  <div class="gz-dashboard__stats">
+    {% for key, stat in stats %}
+      <a href="{{ stat.url }}" class="gz-stat-card gz-stat-card--{{ key }}">
+        <span class="gz-stat-card__icon material-symbols-outlined">{{ stat.icon }}</span>
+        <span class="gz-stat-card__count">{{ stat.count }}</span>
+        <span class="gz-stat-card__label">{{ stat.label }}</span>
+      </a>
+    {% endfor %}
+  </div>
+
+  {# --- Quick access sections --- #}
+  <div class="gz-dashboard__sections">
+    {% for key, section in sections %}
+      <div class="gz-dashboard-section gz-dashboard-section--{{ key }}">
+        <h2 class="gz-dashboard-section__title">
+          <span class="material-symbols-outlined">{{ section.icon }}</span>
+          {{ section.title }}
+        </h2>
+        <div class="gz-dashboard-section__grid">
+          {% for link in section.links %}
+            <a href="{{ link.url }}" class="gz-dashboard-link">
+              <span class="gz-dashboard-link__icon material-symbols-outlined">{{ link.icon }}</span>
+              <span class="gz-dashboard-link__text">
+                <span class="gz-dashboard-link__label">{{ link.label }}</span>
+                {% if link.description %}
+                  <span class="gz-dashboard-link__desc">{{ link.description }}</span>
+                {% endif %}
+              </span>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+</div>

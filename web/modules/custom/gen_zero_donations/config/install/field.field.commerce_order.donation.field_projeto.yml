@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_type.donation
+    - field.storage.commerce_order.field_projeto
+    - node.type.projeto
+  module:
+    - commerce_order
+id: commerce_order.donation.field_projeto
+field_name: field_projeto
+entity_type: commerce_order
+bundle: donation
+label: Projeto
+field_type: entity_reference
+description: 'The projeto this donation is for.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      projeto: projeto
+    sort:
+      field: _none
+    auto_create: false

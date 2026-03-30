@@ -1,0 +1,23 @@
+uuid: cc363e0d-fd99-473f-a48a-4ac4a17bae01
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.location_section
+    - field.storage.block_content.whatsapp
+id: block_content.location_section.whatsapp
+field_name: whatsapp
+entity_type: block_content
+bundle: location_section
+label: WhatsApp
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

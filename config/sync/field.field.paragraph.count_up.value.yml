@@ -1,0 +1,23 @@
+uuid: 3261de80-a4fe-4a30-98d0-ae5138420a6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.value
+    - paragraphs.paragraphs_type.count_up
+id: paragraph.count_up.value
+field_name: value
+entity_type: paragraph
+bundle: count_up
+label: Valor
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

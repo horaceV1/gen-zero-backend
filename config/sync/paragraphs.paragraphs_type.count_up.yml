@@ -1,0 +1,10 @@
+uuid: 88b83c36-e5f5-4d5f-937a-79f7f621aa9b
+langcode: en
+status: true
+dependencies: {  }
+id: count_up
+label: 'Count up'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

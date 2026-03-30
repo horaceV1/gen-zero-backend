@@ -1,0 +1,27 @@
+uuid: 1d4ff67f-70c9-4eda-ade0-a294d485e2f7
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.video_position
+field_name: video_position
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: left
+      label: Esquerda
+    -
+      value: Direita
+      label: Direita
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

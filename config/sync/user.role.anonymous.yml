@@ -9,6 +9,9 @@ dependencies:
     - commerce_checkout
     - commerce_product
     - filter
+    - gen_zero_subscriptions
+    - geocoder
+    - geocoder_autocomplete
     - media
     - system
 _core:
@@ -21,6 +24,9 @@ permissions:
   - 'access checkout'
   - 'access comments'
   - 'access content'
+  - 'access geocoder api endpoints'
+  - 'access geocoder autocomplete'
   - 'use text format restricted_html'
   - 'view commerce_product'
   - 'view media'
+  - 'view subscription tiers'

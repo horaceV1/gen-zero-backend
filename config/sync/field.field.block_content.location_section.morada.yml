@@ -1,0 +1,19 @@
+uuid: 1b6cc2a8-6405-4925-bd65-a4d44f1490e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.location_section
+    - field.storage.block_content.morada
+id: block_content.location_section.morada
+field_name: morada
+entity_type: block_content
+bundle: location_section
+label: Morada
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,8 @@
+uuid: b7911249-c291-4847-87db-254d6db150d3
+langcode: en
+status: true
+dependencies: {  }
+id: count_up_block
+label: 'Count Up Block'
+revision: false
+description: 'Colocar dados numéricos com animação no site.'

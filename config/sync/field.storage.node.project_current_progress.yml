@@ -1,0 +1,20 @@
+uuid: f21e4c7d-fe78-4d6e-9a4a-a3a2320509b7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.project_current_progress
+field_name: project_current_progress
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

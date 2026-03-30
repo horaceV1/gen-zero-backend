@@ -1,0 +1,129 @@
+uuid: 24276287-a1b8-4e76-b2be-0cd0b3059cf5
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.donation
+    - field.field.commerce_order_item.donation.field_card_email
+    - field.field.commerce_order_item.donation.field_designated
+    - field.field.commerce_order_item.donation.field_designation_type
+    - field.field.commerce_order_item.donation.field_donation_amount
+    - field.field.commerce_order_item.donation.field_gift_type
+    - field.field.commerce_order_item.donation.field_honoree_first
+    - field.field.commerce_order_item.donation.field_honoree_last
+    - field.field.commerce_order_item.donation.field_message
+    - field.field.commerce_order_item.donation.field_monthly
+    - field.field.commerce_order_item.donation.field_notify
+    - field.field.commerce_order_item.donation.field_recipient_first_name
+    - field.field.commerce_order_item.donation.field_recipient_last_name
+    - field.field.commerce_order_item.donation.field_recurring_begins
+  module:
+    - commerce_price
+    - datetime
+_core:
+  default_config_hash: 0CLyTnHRQJZnEmzGjC-rulB1KMIa3Isw2hQ1zoexbRA
+id: commerce_order_item.donation.default
+targetEntityType: commerce_order_item
+bundle: donation
+mode: default
+content:
+  field_card_email:
+    type: email_default
+    weight: 6
+    region: content
+    settings:
+      placeholder: 'Send E-card to'
+      size: 60
+    third_party_settings: {  }
+  field_designated:
+    type: boolean_checkbox
+    weight: 19
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_designation_type:
+    type: options_select
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_donation_amount:
+    type: commerce_price_default
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_gift_type:
+    type: options_buttons
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_honoree_first:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: 'First Name'
+    third_party_settings: {  }
+  field_honoree_last:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: 'Last Name'
+    third_party_settings: {  }
+  field_message:
+    type: string_textarea
+    weight: 13
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_monthly:
+    type: boolean_checkbox
+    weight: 18
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_notify:
+    type: boolean_checkbox
+    weight: 22
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_recipient_first_name:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: 'First Name'
+    third_party_settings: {  }
+  field_recipient_last_name:
+    type: string_textfield
+    weight: 12
+    region: content
+    settings:
+      size: 60
+      placeholder: 'Last Name'
+    third_party_settings: {  }
+  field_recurring_begins:
+    type: datetime_default
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  adjustments: true
+  created: true
+  quantity: true
+  title: true
+  total_price: true
+  unit_price: true

@@ -1,0 +1,31 @@
+uuid: 1df1a03b-d1a4-4722-a32d-e676987f053f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.objective.alcancado
+    - field.field.paragraph.objective.descricao
+    - paragraphs.paragraphs_type.objective
+id: paragraph.objective.default
+targetEntityType: paragraph
+bundle: objective
+mode: default
+content:
+  alcancado:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  descricao:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

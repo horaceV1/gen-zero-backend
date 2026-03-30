@@ -1,0 +1,19 @@
+uuid: 40a1d7be-f1a9-495f-b949-606b2a9c411a
+langcode: en
+status: true
+dependencies: {  }
+id: floresta
+label: Floresta
+group: geracao_sustentavel
+price: '50'
+currency: EUR
+billing_period: monthly
+description: 'Obrigado, a tua ajuda é imprescendivel para este rápido crescimento.'
+benefits:
+  - 'beneficio 1'
+  - 'beneficio 2'
+  - 'beneficio 3'
+  - 'beneficio 4'
+badge_label: Floresta
+product_variation_id: 56
+weight: 3

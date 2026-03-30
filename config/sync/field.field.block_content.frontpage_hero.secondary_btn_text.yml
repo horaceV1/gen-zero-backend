@@ -1,0 +1,19 @@
+uuid: 4dd2217b-bd7f-4ed3-9ce6-c92bf569af6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.frontpage_hero
+    - field.storage.block_content.secondary_btn_text
+id: block_content.frontpage_hero.secondary_btn_text
+field_name: secondary_btn_text
+entity_type: block_content
+bundle: frontpage_hero
+label: 'Texto do Botão Secundário'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

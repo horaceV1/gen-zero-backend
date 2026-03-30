@@ -1,0 +1,23 @@
+uuid: ff6a428d-55f9-45bf-9554-245c9c2e8668
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_card_block
+    - field.storage.block_content.n_columns
+  module:
+    - options
+id: block_content.cta_card_block.n_columns
+field_name: n_columns
+entity_type: block_content
+bundle: cta_card_block
+label: 'nº de colunas'
+description: 'Decide quantos cartões por fila.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 3
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

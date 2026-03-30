@@ -1,0 +1,21 @@
+uuid: 8e04cfd8-19fd-4da3-b81f-8de759e4148e
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.donation
+    - field.storage.commerce_order_item.field_honoree_last
+_core:
+  default_config_hash: 8s14q7YiDbiXEknaypNJzMgsvXx979TsWhTn2EyKBhE
+id: commerce_order_item.donation.field_honoree_last
+field_name: field_honoree_last
+entity_type: commerce_order_item
+bundle: donation
+label: 'Honoree Last Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

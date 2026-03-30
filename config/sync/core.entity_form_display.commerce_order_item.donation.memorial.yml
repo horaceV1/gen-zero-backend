@@ -1,0 +1,100 @@
+uuid: 0596b9eb-c8d7-408d-a038-49e497d68205
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.donation
+    - core.entity_form_mode.commerce_order_item.memorial
+    - field.field.commerce_order_item.donation.field_card_email
+    - field.field.commerce_order_item.donation.field_designated
+    - field.field.commerce_order_item.donation.field_designation_type
+    - field.field.commerce_order_item.donation.field_donation_amount
+    - field.field.commerce_order_item.donation.field_gift_type
+    - field.field.commerce_order_item.donation.field_honoree_first
+    - field.field.commerce_order_item.donation.field_honoree_last
+    - field.field.commerce_order_item.donation.field_message
+    - field.field.commerce_order_item.donation.field_monthly
+    - field.field.commerce_order_item.donation.field_notify
+    - field.field.commerce_order_item.donation.field_recipient_first_name
+    - field.field.commerce_order_item.donation.field_recipient_last_name
+    - field.field.commerce_order_item.donation.field_recurring_begins
+_core:
+  default_config_hash: rQGdNV4ZwEkjinT_In0DD0B0fb2RFMe82vesYrM2dW8
+id: commerce_order_item.donation.memorial
+targetEntityType: commerce_order_item
+bundle: donation
+mode: memorial
+content:
+  field_card_email:
+    type: email_default
+    weight: 6
+    region: content
+    settings:
+      placeholder: 'E-mail Address'
+      size: 60
+    third_party_settings: {  }
+  field_designation_type:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_honoree_first:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: 'First Name'
+    third_party_settings: {  }
+  field_honoree_last:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: 'Last Name'
+    third_party_settings: {  }
+  field_message:
+    type: string_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 5
+      placeholder: 'Enter Your Message (Optional)'
+    third_party_settings: {  }
+  field_notify:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_recipient_first_name:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: 'First Name'
+    third_party_settings: {  }
+  field_recipient_last_name:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: 'Last Name'
+    third_party_settings: {  }
+hidden:
+  adjustments: true
+  created: true
+  field_designated: true
+  field_donation_amount: true
+  field_gift_type: true
+  field_monthly: true
+  field_recurring_begins: true
+  quantity: true
+  title: true
+  total_price: true
+  unit_price: true

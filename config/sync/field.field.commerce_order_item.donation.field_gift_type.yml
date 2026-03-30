@@ -1,0 +1,23 @@
+uuid: dad187a0-c23a-44ca-9348-ea59ff9d2306
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.donation
+    - field.storage.commerce_order_item.field_gift_type
+  module:
+    - options
+_core:
+  default_config_hash: RNCwTSzz67DfzWHKQiWFDMAWHPY5F6r_hKpIkeJLfsc
+id: commerce_order_item.donation.field_gift_type
+field_name: field_gift_type
+entity_type: commerce_order_item
+bundle: donation
+label: 'Gift Type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

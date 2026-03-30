@@ -1,0 +1,13 @@
+uuid: 8d1e3c74-b2a4-4f9e-a1d8-e3c74b2a4f9e
+langcode: en
+status: true
+dependencies: {  }
+id: subscription
+label: Subscription
+description: 'Hidden subscription products linked to subscription tiers. Not shown in store or search.'
+variationTypes:
+  - subscription
+multipleVariations: false
+injectVariationFields: true
+traits: {  }
+locked: false

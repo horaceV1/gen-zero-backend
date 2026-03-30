@@ -11,7 +11,7 @@ id: block_content.cklb_hero.cklb_title
 field_name: cklb_title
 entity_type: block_content
 bundle: cklb_hero
-label: Title
+label: Titulo
 description: ''
 required: false
 translatable: true

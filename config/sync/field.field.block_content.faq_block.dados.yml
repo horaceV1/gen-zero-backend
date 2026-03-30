@@ -1,0 +1,40 @@
+uuid: adcbdf0d-bb5d-4735-b261-c3b1ab009b6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.faq_block
+    - field.storage.block_content.dados
+    - paragraphs.paragraphs_type.faq
+  module:
+    - entity_reference_revisions
+id: block_content.faq_block.dados
+field_name: dados
+entity_type: block_content
+bundle: faq_block
+label: Dados
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      faq: faq
+    negate: 0
+    target_bundles_drag_drop:
+      card:
+        weight: 5
+        enabled: false
+      faq:
+        weight: 6
+        enabled: true
+      image:
+        weight: 7
+        enabled: false
+      objective:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

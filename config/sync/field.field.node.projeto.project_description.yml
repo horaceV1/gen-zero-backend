@@ -1,0 +1,32 @@
+uuid: 3e54e624-51b5-43ae-a595-a514d4781fbe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.project_description
+    - filter.format.basic_html
+    - filter.format.email_html
+    - filter.format.full_html
+    - filter.format.plain_text
+    - filter.format.restricted_html
+    - node.type.projeto
+  module:
+    - text
+id: node.projeto.project_description
+field_name: project_description
+entity_type: node
+bundle: projeto
+label: Descrição
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - restricted_html
+    - full_html
+    - email_html
+    - plain_text
+field_type: text_long

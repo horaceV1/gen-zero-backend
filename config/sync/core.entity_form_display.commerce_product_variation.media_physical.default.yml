@@ -16,31 +16,31 @@ third_party_settings:
         - sku
         - list_price
         - price
+      label: Inventory
+      region: content
       parent_name: ''
       weight: 1
       format_type: fieldset
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
         description: ''
         required_fields: true
-      label: Inventory
     group_shipping:
       children:
         - weight
+      label: Shipping
+      region: content
       parent_name: ''
       weight: 2
       format_type: fieldset
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
         description: ''
         required_fields: true
-      label: Shipping
 _core:
   default_config_hash: VNhS0GUL1vKNtidEIaRovYy2kQ3mDl_Gf1erJJSk35E
 id: commerce_product_variation.media_physical.default
@@ -48,6 +48,13 @@ targetEntityType: commerce_product_variation
 bundle: media_physical
 mode: default
 content:
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   list_price:
     type: commerce_list_price
     weight: 3
@@ -70,10 +77,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 3
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield

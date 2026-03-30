@@ -5,6 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: aqyngob856rvY62EL-sbZJqz3gu--VFuWWkQ3_EOcSc
 id: cklb_hero
-label: Hero
-revision: 0
+label: 'Hero Simples'
+revision: false
 description: 'Block for adding text with optional Call to Action and Subtitle '

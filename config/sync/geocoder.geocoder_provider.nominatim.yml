@@ -1,0 +1,11 @@
+uuid: d264638c-3181-41ed-893c-a40530b949d2
+langcode: en
+status: true
+dependencies: {  }
+id: nominatim
+label: Nominatim
+plugin: nominatim
+configuration:
+  rootUrl: 'https://nominatim.openstreetmap.org'
+  userAgent: GenZero-Drupal-Site
+  referer: ''

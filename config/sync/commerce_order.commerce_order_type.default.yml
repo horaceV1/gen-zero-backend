@@ -7,7 +7,7 @@ dependencies:
     - commerce_shipping
 third_party_settings:
   commerce_checkout:
-    checkout_flow: shipping
+    checkout_flow: donation_flow
   commerce_shipping:
     shipment_type: default
 _core:
@@ -17,6 +17,7 @@ label: Default
 traits: {  }
 locked: false
 workflow: order_default
+showOrderEditLinks: null
 numberPattern: order_default
 refresh_mode: customer
 refresh_frequency: 300

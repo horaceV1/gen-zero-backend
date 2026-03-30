@@ -1,0 +1,23 @@
+uuid: 69d718d3-4b7b-4227-ae70-fea91ba83955
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.pagina_principal
+    - node.type.pagina_personalizada
+id: node.pagina_personalizada.pagina_principal
+field_name: pagina_principal
+entity_type: node
+bundle: pagina_personalizada
+label: 'Página Principal'
+description: 'Só pode ter uma página principal, a que aparece quando abres o site'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'True'
+  off_label: 'False'
+field_type: boolean

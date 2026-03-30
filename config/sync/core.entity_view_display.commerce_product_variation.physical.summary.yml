@@ -5,6 +5,7 @@ dependencies:
   config:
     - commerce_product.commerce_product_variation_type.physical
     - core.entity_view_mode.commerce_product_variation.summary
+    - field.field.commerce_product_variation.physical.quantidade_em_gramas_de_plastico
     - field.field.commerce_product_variation.physical.weight
   module:
     - commerce_price
@@ -17,32 +18,34 @@ mode: summary
 content:
   price:
     type: commerce_price_default
-    weight: 2
-    region: content
     label: hidden
     settings:
       strip_trailing_zeroes: false
       currency_display: symbol
     third_party_settings: {  }
+    weight: 2
+    region: content
   sku:
     type: string
-    weight: 0
-    region: content
     label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 0
+    region: content
   title:
     type: string
-    weight: 1
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   commerce_variation_cart_form: true
+  langcode: true
   list_price: true
   product_id: true
+  quantidade_em_gramas_de_plastico: true
   search_api_excerpt: true
   weight: true

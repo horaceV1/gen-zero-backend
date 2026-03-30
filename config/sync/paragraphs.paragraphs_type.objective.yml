@@ -1,0 +1,10 @@
+uuid: 01b79a3c-8d22-49a8-ba87-9ca4aa15a150
+langcode: en
+status: true
+dependencies: {  }
+id: objective
+label: Objetivo
+icon_uuid: null
+icon_default: null
+description: 'Objetivo a ser alcançado.'
+behavior_plugins: {  }

@@ -196,6 +196,7 @@ display:
         title: Blog
         description: ''
         weight: 1
+        enabled: false
         expanded: false
         menu_name: main
         parent: ''

@@ -1,0 +1,7 @@
+entity:
+  subscription_tier_group:
+    add_form:
+      title: 'Adicionar grupo de níveis'
+  subscription_tier:
+    add_form:
+      title: 'Adicionar nível'

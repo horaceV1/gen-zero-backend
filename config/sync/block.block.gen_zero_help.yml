@@ -1,0 +1,22 @@
+uuid: 0adc9d37-4a2e-41c6-9622-4838f4954faa
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - gen_zero
+_core:
+  default_config_hash: gKtOcSQTQki2pujw1HB5crJu7WlQmuPbl9cMqPDeWtA
+id: gen_zero_help
+theme: gen_zero
+region: content
+weight: -8
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

@@ -1,0 +1,33 @@
+uuid: 151047ae-2c5c-474f-aac2-d142d7bb74e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.objective.alcancado
+    - field.field.paragraph.objective.descricao
+    - paragraphs.paragraphs_type.objective
+id: paragraph.objective.default
+targetEntityType: paragraph
+bundle: objective
+mode: default
+content:
+  alcancado:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  descricao:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -20,10 +20,17 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  contact:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   commerce_remote_id: true
   customer_profiles: true
+  langcode: true
   language: true
   path: true
+  shipping_profiles: true
   timezone: true
   user_picture: true

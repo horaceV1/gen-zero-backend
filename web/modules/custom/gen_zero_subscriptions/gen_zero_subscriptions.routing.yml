@@ -1,0 +1,81 @@
+gen_zero_subscriptions.tiers_config:
+  path: '/api/subscriptions/tiers'
+  defaults:
+    _controller: '\Drupal\gen_zero_subscriptions\Controller\SubscriptionTiersController::getTiers'
+  methods: [GET]
+  requirements:
+    _permission: 'view subscription tiers'
+  options:
+    _auth: ['cookie', 'basic_auth', 'jwt_auth']
+    no_cache: TRUE
+
+gen_zero_subscriptions.subscribe:
+  path: '/api/subscriptions/subscribe'
+  defaults:
+    _controller: '\Drupal\gen_zero_subscriptions\Controller\UserSubscriptionController::subscribe'
+  methods: [POST]
+  requirements:
+    _permission: 'create subscriptions'
+  options:
+    _auth: ['cookie', 'basic_auth', 'jwt_auth']
+
+gen_zero_subscriptions.my_subscriptions:
+  path: '/api/subscriptions/mine'
+  defaults:
+    _controller: '\Drupal\gen_zero_subscriptions\Controller\UserSubscriptionController::mySubscriptions'
+  methods: [GET]
+  requirements:
+    _permission: 'manage own subscription'
+  options:
+    _auth: ['cookie', 'basic_auth', 'jwt_auth']
+    no_cache: TRUE
+
+gen_zero_subscriptions.cancel:
+  path: '/api/subscriptions/{subscription_id}/cancel'
+  defaults:
+    _controller: '\Drupal\gen_zero_subscriptions\Controller\UserSubscriptionController::cancel'
+  methods: [POST]
+  requirements:
+    _permission: 'manage own subscription'
+    subscription_id: '\d+'
+  options:
+    _auth: ['cookie', 'basic_auth', 'jwt_auth']
+
+gen_zero_subscriptions.pause:
+  path: '/api/subscriptions/{subscription_id}/pause'
+  defaults:
+    _controller: '\Drupal\gen_zero_subscriptions\Controller\UserSubscriptionController::pause'
+  methods: [POST]
+  requirements:
+    _permission: 'manage own subscription'
+    subscription_id: '\d+'
+  options:
+    _auth: ['cookie', 'basic_auth', 'jwt_auth']
+
+gen_zero_subscriptions.resume:
+  path: '/api/subscriptions/{subscription_id}/resume'
+  defaults:
+    _controller: '\Drupal\gen_zero_subscriptions\Controller\UserSubscriptionController::resume'
+  methods: [POST]
+  requirements:
+    _permission: 'manage own subscription'
+    subscription_id: '\d+'
+  options:
+    _auth: ['cookie', 'basic_auth', 'jwt_auth']
+
+gen_zero_subscriptions.webhook:
+  path: '/api/subscriptions/webhook/{gateway_id}'
+  defaults:
+    _controller: '\Drupal\gen_zero_subscriptions\Controller\PaymentWebhookController::handle'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+    gateway_id: '[a-z_]+'
+
+gen_zero_subscriptions.gateway_settings:
+  path: '/admin/commerce/subscriptions/gateway-settings'
+  defaults:
+    _form: '\Drupal\gen_zero_subscriptions\Form\GatewaySettingsForm'
+    _title: 'Payment Gateway Settings'
+  requirements:
+    _permission: 'administer subscriptions'

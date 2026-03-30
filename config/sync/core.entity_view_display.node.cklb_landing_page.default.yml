@@ -70,8 +70,8 @@ third_party_settings:
             blb_region_col_1: {  }
           breakpoints: {  }
           layout_regions_classes: {  }
-          context_mapping: {  }
           remove_gutters: '0'
+          context_mapping: {  }
         components: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
@@ -103,9 +103,9 @@ third_party_settings:
         - 'bootstrap_layout_builder:blb_col_11'
         - 'bootstrap_layout_builder:blb_col_12'
         - cklb_slideshow
+      restricted_categories: {  }
       blacklisted_blocks: {  }
       whitelisted_blocks: {  }
-      restricted_categories: {  }
     entity_view_mode_restriction_by_region:
       allowed_layouts:
         - 'bootstrap_layout_builder:blb_col_1'
@@ -150,5 +150,6 @@ content:
     weight: 100
     region: content
 hidden:
+  langcode: true
   layout_builder__layout: true
   search_api_excerpt: true

@@ -1,0 +1,40 @@
+uuid: 3a500c60-84fa-43c3-9ac8-1a33cdd2b3b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.count_up.label
+    - field.field.paragraph.count_up.sufixo
+    - field.field.paragraph.count_up.value
+    - paragraphs.paragraphs_type.count_up
+id: paragraph.count_up.default
+targetEntityType: paragraph
+bundle: count_up
+mode: default
+content:
+  label:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  sufixo:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  value:
+    type: number
+    weight: 0
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,23 @@
+uuid: 966231d1-1b3c-4e0f-a692-a55b33d12f4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.bg_color
+    - paragraphs.paragraphs_type.card
+  module:
+    - options
+id: paragraph.card.bg_color
+field_name: bg_color
+entity_type: paragraph
+bundle: card
+label: 'Cor de fundo'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: white
+default_value_callback: ''
+settings: {  }
+field_type: list_string

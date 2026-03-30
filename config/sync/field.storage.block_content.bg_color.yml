@@ -1,0 +1,30 @@
+uuid: 49dfcc49-f886-4ad4-89a5-ab83bbb2a615
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.bg_color
+field_name: bg_color
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: gray
+      label: Cinzento
+    -
+      value: white
+      label: Branco
+    -
+      value: Preto
+      label: Preto
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

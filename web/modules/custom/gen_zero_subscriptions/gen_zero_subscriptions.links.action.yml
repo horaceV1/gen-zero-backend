@@ -1,0 +1,11 @@
+entity.subscription_tier_group.add_form:
+  route_name: entity.subscription_tier_group.add_form
+  title: 'Add tier group'
+  appears_on:
+    - entity.subscription_tier_group.collection
+
+entity.subscription_tier.add_form:
+  route_name: entity.subscription_tier.add_form
+  title: 'Add tier'
+  appears_on:
+    - entity.subscription_tier.collection

@@ -1,0 +1,18 @@
+uuid: 071025ce-c44c-4799-9349-f369dc8893a4
+langcode: en
+status: true
+dependencies: {  }
+id: arvore
+label: Árvore
+group: geracao_sustentavel
+price: '20'
+currency: EUR
+billing_period: monthly
+description: 'Vem connosco criar a amazónia.'
+benefits:
+  - 'beneficio 1'
+  - 'beneficio 2'
+  - 'beneficio 3'
+badge_label: Árvore
+product_variation_id: 55
+weight: 2

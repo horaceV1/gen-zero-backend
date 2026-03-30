@@ -1,0 +1,64 @@
+label: Promoções
+display:
+  default:
+    display_title: 'Por defeito'
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Aplicar
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        options:
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« Primeira'
+            last: 'Última »'
+          expose:
+            items_per_page_label: 'Itens por página'
+            items_per_page_options_all_label: '- Todos -'
+            offset_label: Deslocamento
+      fields:
+        name:
+          label: Nome
+          separator: ', '
+        offer__target_plugin_id:
+          label: 'Tipo de oferta'
+          separator: ', '
+        usage_limit:
+          label: Utilização
+          separator: ', '
+        usage_limit_customer:
+          separator: ', '
+        start_date:
+          label: 'Data de início'
+          separator: ', '
+        end_date:
+          label: 'Data de fim'
+          separator: ', '
+        operations:
+          label: Operações
+      filters:
+        name:
+          expose:
+            label: Nome
+        offer__target_plugin_id:
+          expose:
+            label: 'Tipo de oferta'
+        code:
+          expose:
+            label: 'Código do cupão'
+        status:
+          expose:
+            label: Estado
+      title: Promoções
+  admin:
+    display_title: Página
+    display_options:
+      menu:
+        title: Lista
+      tab_options:
+        title: Lista

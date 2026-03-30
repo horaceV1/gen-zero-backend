@@ -1,0 +1,113 @@
+uuid: c82154ef-6476-4920-aaae-fda9a678de49
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.frontpage_hero
+    - field.field.block_content.frontpage_hero.button_link
+    - field.field.block_content.frontpage_hero.button_text
+    - field.field.block_content.frontpage_hero.carousel
+    - field.field.block_content.frontpage_hero.count_up
+    - field.field.block_content.frontpage_hero.secondary_btn_link
+    - field.field.block_content.frontpage_hero.secondary_btn_text
+    - field.field.block_content.frontpage_hero.subtitulo
+    - field.field.block_content.frontpage_hero.titulo
+  module:
+    - link
+    - media_library
+    - paragraphs
+    - text
+id: block_content.frontpage_hero.default
+targetEntityType: block_content
+bundle: frontpage_hero
+mode: default
+content:
+  button_link:
+    type: link_default
+    weight: 5
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  button_text:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  carousel:
+    type: media_library_widget
+    weight: 27
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  count_up:
+    type: paragraphs
+    weight: 26
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  secondary_btn_link:
+    type: link_default
+    weight: 29
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  secondary_btn_text:
+    type: string_textfield
+    weight: 28
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  subtitulo:
+    type: text_textfield
+    weight: 31
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  titulo:
+    type: string_textfield
+    weight: 30
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

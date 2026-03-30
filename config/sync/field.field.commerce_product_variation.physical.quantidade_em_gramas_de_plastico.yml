@@ -1,0 +1,25 @@
+uuid: 0153b334-013c-4358-9641-b0a401e791c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.physical
+    - field.storage.commerce_product_variation.quantidade_em_gramas_de_plastico
+id: commerce_product_variation.physical.quantidade_em_gramas_de_plastico
+field_name: quantidade_em_gramas_de_plastico
+entity_type: commerce_product_variation
+bundle: physical
+label: 'Quantidade em gramas de plástico usado'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: g
+field_type: integer

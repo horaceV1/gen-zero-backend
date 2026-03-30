@@ -5,9 +5,12 @@ dependencies:
   config:
     - commerce_product.commerce_product_type.physical
     - field.field.commerce_product.physical.body
+    - field.field.commerce_product.physical.ecosystem
     - field.field.commerce_product.physical.images
     - field.field.commerce_product.physical.layout_builder__layout
     - field.field.commerce_product.physical.model_three_js
+    - field.field.commerce_product.physical.origem
+    - field.field.commerce_product.physical.pontos
     - field.field.commerce_product.physical.product_brand
     - field.field.commerce_product.physical.product_collections
     - field.field.commerce_product.physical.product_tags
@@ -510,6 +513,55 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
+          379c4b03-f19c-4efd-a44f-15dc833587ee:
+            uuid: 379c4b03-f19c-4efd-a44f-15dc833587ee
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:commerce_product:physical:origem'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          84d91a17-5366-48d9-a48d-1ccbca6d410e:
+            uuid: 84d91a17-5366-48d9-a48d-1ccbca6d410e
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:commerce_product:physical:ecosystem'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+          e75721fb-0ab3-4726-8045-246f941cb9c8:
+            uuid: e75721fb-0ab3-4726-8045-246f941cb9c8
+            region: blb_region_col_1
+            configuration:
+              id: 'field_block:commerce_product:physical:pontos'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: number_integer
+                label: above
+                settings:
+                  thousand_separator: ''
+                  prefix_suffix: true
+                third_party_settings: {  }
+            weight: 7
+            additional: {  }
         third_party_settings:
           layout_builder_lock:
             lock:
@@ -561,6 +613,14 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  ecosystem:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 9
+    region: blb_region_col_1
   images:
     type: image
     label: hidden
@@ -588,6 +648,23 @@ content:
       label_link: ''
     third_party_settings: {  }
     weight: 6
+    region: blb_region_col_1
+  origem:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 8
+    region: blb_region_col_1
+  pontos:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 10
     region: blb_region_col_1
   show_model:
     type: boolean
@@ -617,6 +694,7 @@ content:
     region: content
 hidden:
   created: true
+  langcode: true
   layout_builder__layout: true
   product_brand: true
   product_collections: true
