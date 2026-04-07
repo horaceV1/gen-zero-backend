@@ -5,6 +5,8 @@
  * Module file for Gen Zero Dashboard.
  */
 
+use Drupal\Core\Url;
+
 /**
  * Implements hook_theme().
  */
@@ -18,4 +20,43 @@ function gen_zero_dashboard_theme(): array {
       'template' => 'gen-zero-dashboard',
     ],
   ];
+}
+
+/**
+ * Implements hook_toolbar_alter().
+ */
+function gen_zero_dashboard_toolbar_alter(&$items): void {
+  // Remove the plain "Back to site" toolbar tab (no dropdown).
+  unset($items['home']);
+  // Remove the "Shortcuts" toolbar tab.
+  unset($items['shortcuts']);
+}
+
+/**
+ * Implements hook_menu_links_discovered_alter().
+ */
+function gen_zero_dashboard_menu_links_discovered_alter(&$links): void {
+  // Move the "Front page" (Drupal icon) from the top-level admin sidebar
+  // into the Help section so it doesn't appear as an extra sidebar icon.
+  if (isset($links['admin_toolbar_tools.help'])) {
+    $links['admin_toolbar_tools.help']['parent'] = 'help.main';
+    $links['admin_toolbar_tools.help']['weight'] = -100;
+  }
+}
+
+/**
+ * Implements hook_help().
+ */
+function gen_zero_dashboard_help($route_name, $route_match): ?string {
+  if ($route_name === 'help.main') {
+    $home_url = Url::fromRoute('<front>')->toString();
+    $shortcuts_url = Url::fromRoute('entity.shortcut_set.collection')->toString();
+    $output = '<h3>' . t('Visão Geral') . '</h3>';
+    $output .= '<ul>';
+    $output .= '<li><a href="' . $home_url . '">' . t('Voltar ao site') . '</a> - ' . t('Ir para a página principal do site.') . '</li>';
+    $output .= '<li><a href="' . $shortcuts_url . '">' . t('Atalhos') . '</a> - ' . t('Gerir os atalhos de administração.') . '</li>';
+    $output .= '</ul>';
+    return $output;
+  }
+  return NULL;
 }
