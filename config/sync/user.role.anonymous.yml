@@ -13,6 +13,7 @@ dependencies:
     - geocoder
     - geocoder_autocomplete
     - media
+    - rest
     - system
 _core:
   default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
@@ -26,6 +27,7 @@ permissions:
   - 'access content'
   - 'access geocoder api endpoints'
   - 'access geocoder autocomplete'
+  - 'restful post user_registration'
   - 'use text format restricted_html'
   - 'view commerce_product'
   - 'view media'
