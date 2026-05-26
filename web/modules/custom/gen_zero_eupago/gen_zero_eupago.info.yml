@@ -1,0 +1,13 @@
+name: 'Gen Zero EuPago'
+type: module
+description: 'EuPago payment integration (Multibanco, MB WAY, Credit Card) for Drupal Commerce orders and the Next.js frontend.'
+core_version_requirement: ^10.3 || ^11
+package: 'Gen Zero'
+dependencies:
+  - drupal:system
+  - drupal:user
+  - commerce:commerce
+  - commerce:commerce_order
+  - commerce:commerce_payment
+  - commerce:commerce_price
+configure: gen_zero_eupago.settings_form

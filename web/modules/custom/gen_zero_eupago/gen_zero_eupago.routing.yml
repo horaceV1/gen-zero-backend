@@ -1,0 +1,40 @@
+gen_zero_eupago.checkout:
+  path: '/api/eupago/checkout'
+  defaults:
+    _controller: '\Drupal\gen_zero_eupago\Controller\EuPagoController::checkout'
+  methods: [POST]
+  requirements:
+    _permission: 'access content'
+  options:
+    _auth: ['cookie', 'basic_auth', 'jwt_auth', 'oauth2']
+    no_cache: TRUE
+
+gen_zero_eupago.notify:
+  path: '/api/eupago/notify'
+  defaults:
+    _controller: '\Drupal\gen_zero_eupago\Controller\EuPagoController::notify'
+  methods: [POST, GET]
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+
+gen_zero_eupago.status:
+  path: '/api/eupago/status/{order_id}'
+  defaults:
+    _controller: '\Drupal\gen_zero_eupago\Controller\EuPagoController::status'
+  methods: [GET]
+  requirements:
+    _permission: 'access content'
+    order_id: '\d+'
+  options:
+    _auth: ['cookie', 'basic_auth', 'jwt_auth', 'oauth2']
+    no_cache: TRUE
+
+gen_zero_eupago.settings_form:
+  path: '/admin/commerce/config/eupago'
+  defaults:
+    _form: '\Drupal\gen_zero_eupago\Form\EuPagoSettingsForm'
+    _title: 'EuPago Settings'
+  requirements:
+    _permission: 'administer commerce_payment_gateway'

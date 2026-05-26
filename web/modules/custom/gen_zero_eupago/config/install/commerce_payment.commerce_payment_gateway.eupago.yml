@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_payment
+id: eupago
+label: 'EuPago'
+weight: 0
+plugin: manual
+configuration:
+  display_label: 'EuPago (Multibanco / MB WAY / Cartão)'
+  instructions:
+    value: 'Pagamento processado via EuPago. A encomenda será confirmada assim que recebermos a notificação de pagamento.'
+    format: basic_html
+conditions: {  }
+conditionOperator: AND

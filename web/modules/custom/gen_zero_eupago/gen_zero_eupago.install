@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Install hooks for gen_zero_eupago.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Config\FileStorage;
+
+/**
+ * Implements hook_install().
+ *
+ * Ensures the commerce_payment_gateway entity for EuPago exists when the
+ * module is enabled without a full config import.
+ */
+function gen_zero_eupago_install(): void {
+  $storage = \Drupal::entityTypeManager()->getStorage('commerce_payment_gateway');
+  if ($storage->load('eupago')) {
+    return;
+  }
+
+  $module_path = \Drupal::service('extension.list.module')->getPath('gen_zero_eupago');
+  $config_storage = new FileStorage($module_path . '/config/install');
+  $data = $config_storage->read('commerce_payment.commerce_payment_gateway.eupago');
+  if (is_array($data)) {
+    $storage->create($data)->save();
+  }
+}

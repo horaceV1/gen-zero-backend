@@ -1,0 +1,11 @@
+mode: sandbox
+api_key: '2964-b20b-7571-8240-1c1e'
+channel: ''
+multibanco_deadline_days: 7
+allowed_methods:
+  - multibanco
+  - mbway
+  - cc
+notify_url: ''
+return_url: ''
+payment_gateway_id: eupago

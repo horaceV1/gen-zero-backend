@@ -1,0 +1,5 @@
+gen_zero_eupago.settings_form:
+  title: 'EuPago Settings'
+  description: 'Configure the EuPago payment integration (API key, mode, methods).'
+  route_name: gen_zero_eupago.settings_form
+  parent: commerce.configuration

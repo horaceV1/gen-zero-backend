@@ -73,6 +73,7 @@ module:
   filter: 0
   gen_zero_dashboard: 0
   gen_zero_donations: 0
+  gen_zero_eupago: 0
   gen_zero_subscriptions: 0
   gen_zero_webform_rest: 0
   geocoder: 0

@@ -1,0 +1,11 @@
+services:
+  logger.channel.gen_zero_eupago:
+    parent: logger.channel_base
+    arguments: ['gen_zero_eupago']
+
+  gen_zero_eupago.client:
+    class: Drupal\gen_zero_eupago\EuPagoClient
+    arguments:
+      - '@http_client'
+      - '@config.factory'
+      - '@logger.channel.gen_zero_eupago'

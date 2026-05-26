@@ -1,0 +1,19 @@
+uuid: 48ba5913-bb77-4e22-8615-bf2fb661cda9
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_payment
+_core:
+  default_config_hash: gen_zero_eupago_gateway
+id: eupago
+label: 'EuPago'
+weight: 0
+plugin: manual
+configuration:
+  display_label: 'EuPago (Multibanco / MB WAY / Cartão)'
+  instructions:
+    value: 'Pagamento processado via EuPago. A encomenda será confirmada assim que recebermos a notificação de pagamento.'
+    format: basic_html
+conditions: {  }
+conditionOperator: AND

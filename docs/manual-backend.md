@@ -385,9 +385,38 @@ Campos a preencher:
 
 Pagamentos portugueses via Multibanco, MB WAY e Cartão de Crédito.
 
+A chave EuPago é gerida em dois locais:
+
+- **Subscrições** — `Commerce → Configurar Gateways de Subscrições`
+  (config `gen_zero_subscriptions.gateway_settings`).
+- **Carrinho / Encomendas Commerce** — `Commerce → Configuração → EuPago Settings`
+  em `/admin/commerce/config/eupago` (config `gen_zero_eupago.settings`).
+
 Campos a preencher:
-- **API Key** — Chave fornecida pela EuPago
-- **Modo** — Escolha "sandbox" para testes ou "live" para produção
+- **API Key (chave)** — Chave fornecida pela EuPago no backoffice
+- **Modo** — `sandbox` (testes) ou `live` (produção)
+- **Channel (canal)** — opcional, fornecido pela EuPago
+- **Multibanco deadline** — validade da referência em dias (default 7)
+- **Métodos permitidos** — Multibanco, MB WAY e/ou Cartão de Crédito
+- **Return URL** — URL no frontend para onde o cliente é redirecionado após
+  pagamento por cartão de crédito
+- **Notify URL** — opcional; URL pública de `/api/eupago/notify` (deixe vazio
+  para usar a URL derivada do pedido). É esta URL que deve ser registada como
+  *webhook* no backoffice da EuPago.
+
+> A chave atual em ambiente sandbox é `2964-b20b-7571-8240-1c1e`.
+
+##### Endpoints expostos pelo módulo `gen_zero_eupago`
+
+| Método | Caminho | Descrição |
+| --- | --- | --- |
+| `POST` | `/api/eupago/checkout` | Inicia um pagamento para uma `commerce_order`. Body: `{ order_id, method, phone?, email?, return_url? }`. Requer autenticação. |
+| `POST` | `/api/eupago/notify` | Webhook chamado pela EuPago para confirmar pagamentos. Cria um `commerce_payment` e transita a encomenda do estado `draft` para `place`. |
+| `GET`  | `/api/eupago/status/{order_id}` | Devolve o estado guardado em `order.data.eupago` (dono da encomenda ou admin). |
+
+O frontend Next.js consome `/api/eupago/checkout` através de
+`src/lib/eupago.ts` e do endpoint proxy `/api/checkout/eupago`. A chave da
+EuPago nunca é exposta no Next: vive exclusivamente na configuração do Drupal.
 
 #### Manual / Offline
 
