@@ -1,6 +1,6 @@
 _core:
   default_config_hash: gen_zero_eupago_initial
-mode: sandbox
+mode: live
 api_key: '2964-b20b-7571-8240-1c1e'
 channel: ''
 multibanco_deadline_days: 7

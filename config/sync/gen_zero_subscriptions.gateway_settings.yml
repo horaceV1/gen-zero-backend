@@ -9,7 +9,7 @@ paypal:
   cancel_url: ''
   plan_mapping: {  }
 eupago:
-  mode: sandbox
+  mode: live
   api_key: '2964-b20b-7571-8240-1c1e'
   channel: ''
   return_url: ''
