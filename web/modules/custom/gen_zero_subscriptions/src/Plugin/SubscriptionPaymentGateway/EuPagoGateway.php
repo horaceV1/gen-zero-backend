@@ -121,19 +121,21 @@ class EuPagoGateway extends SubscriptionPaymentGatewayBase {
    */
   protected function createMultibancoPayment(array $config, SubscriptionTierInterface $tier, string $internalId, float $amount): array {
     $baseUrl = $this->getApiBaseUrl($config);
-    $payment = [
-      'amount' => ['currency' => 'EUR', 'value' => round($amount, 2)],
+    // Multibanco uses a FLAT payload (amount as a top-level number).
+    $payload = [
+      'amount' => round($amount, 2),
       'identifier' => $internalId,
+      'per_dup' => 0,
     ];
 
-    // Add expiration date (deadline days) if configured.
+    // Add deadline date if configured.
     if (!empty($config['multibanco_deadline_days'])) {
-      $payment['expirationDate'] = date('Y-m-d', strtotime('+' . (int) $config['multibanco_deadline_days'] . ' days'));
+      $payload['data_fim'] = date('Y-m-d', strtotime('+' . (int) $config['multibanco_deadline_days'] . ' days'));
     }
 
     try {
       $response = $this->httpClient->request('POST', $baseUrl . '/api/v1.02/multibanco/create', [
-        'json' => ['payment' => $payment],
+        'json' => $payload,
         'headers' => $this->apiHeaders($config),
         'http_errors' => FALSE,
       ]);
@@ -146,7 +148,6 @@ class EuPagoGateway extends SubscriptionPaymentGatewayBase {
         return ['success' => FALSE, 'message' => 'Could not generate Multibanco reference.'];
       }
 
-      $reference = $data['reference'] ?? [];
       return [
         'success' => TRUE,
         'subscription_id' => $internalId,
@@ -154,11 +155,11 @@ class EuPagoGateway extends SubscriptionPaymentGatewayBase {
         'initial_status' => 'pending',
         'data' => [
           'payment_method' => 'multibanco',
-          'entity' => $reference['entity'] ?? $data['entidade'] ?? '',
-          'reference' => $reference['reference'] ?? $data['referencia'] ?? '',
+          'entity' => $data['entity'] ?? $data['entidade'] ?? '',
+          'reference' => (is_string($data['reference'] ?? NULL) ? $data['reference'] : NULL) ?? $data['referencia'] ?? '',
           'amount' => $amount,
           'currency' => $tier->getCurrency(),
-          'deadline' => $reference['expirationDate'] ?? $payment['expirationDate'] ?? NULL,
+          'deadline' => $payload['data_fim'] ?? NULL,
         ],
       ];
     }
@@ -177,18 +178,14 @@ class EuPagoGateway extends SubscriptionPaymentGatewayBase {
     }
 
     $baseUrl = $this->getApiBaseUrl($config);
-    [$countryCode, $localPhone] = $this->splitPhone((string) $payment_data['phone']);
+    $localPhone = $this->normalizePhone((string) $payment_data['phone']);
     $payload = [
       'payment' => [
         'amount' => ['currency' => 'EUR', 'value' => round($amount, 2)],
         'identifier' => $internalId,
-        'countryCode' => $countryCode,
+        // EuPago expects the ISO country code (e.g. 'PT'), not the dial code.
+        'countryCode' => 'PT',
         'customerPhone' => $localPhone,
-      ],
-      'customer' => [
-        'notify' => TRUE,
-        'phone' => $localPhone,
-        'countryCode' => $countryCode,
       ],
     ];
 
@@ -322,21 +319,21 @@ class EuPagoGateway extends SubscriptionPaymentGatewayBase {
   }
 
   /**
-   * Splits a phone alias into [countryCode, localNumber].
+   * Normalises a phone alias into a bare 9-digit local number.
    *
-   * Accepts "351#912345678", "351912345678" or "912345678".
+   * Accepts "351#912345678", "351912345678", "+351 912345678" or "912345678".
    */
-  protected function splitPhone(string $phone): array {
+  protected function normalizePhone(string $phone): string {
     $phone = trim($phone);
     if (str_contains($phone, '#')) {
-      [$code, $local] = explode('#', $phone, 2);
-      return [ltrim($code, '+') ?: '351', preg_replace('/\D+/', '', $local)];
+      [, $local] = explode('#', $phone, 2);
+      $phone = $local;
     }
     $digits = preg_replace('/\D+/', '', $phone);
     if (strlen($digits) > 9 && str_starts_with($digits, '351')) {
-      return ['351', substr($digits, 3)];
+      $digits = substr($digits, 3);
     }
-    return ['351', $digits];
+    return $digits;
   }
 
 }

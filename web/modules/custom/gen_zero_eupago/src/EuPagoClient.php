@@ -71,20 +71,22 @@ final class EuPagoClient {
 
   /**
    * Creates a Multibanco reference (entidade + referencia).
+   *
+   * The ApiKey-auth Multibanco endpoint uses a FLAT payload (amount as a
+   * top-level number), unlike MB WAY / Credit Card which nest under `payment`.
    */
   public function createMultibanco(string $internalId, float $amount): array {
     $settings = $this->getSettings();
-    $payment = [
-      'amount' => [
-        'currency' => 'EUR',
-        'value' => round($amount, 2),
-      ],
+    $payload = [
+      'amount' => round($amount, 2),
       'identifier' => $internalId,
+      // 0 = reference accepts a single payment only.
+      'per_dup' => 0,
     ];
     if ($settings['multibanco_deadline_days'] > 0) {
-      $payment['expirationDate'] = date('Y-m-d', strtotime('+' . $settings['multibanco_deadline_days'] . ' days'));
+      $payload['data_fim'] = date('Y-m-d', strtotime('+' . $settings['multibanco_deadline_days'] . ' days'));
     }
-    return $this->post('/api/v1.02/multibanco/create', ['payment' => $payment]);
+    return $this->post('/api/v1.02/multibanco/create', $payload);
   }
 
   /**
@@ -93,7 +95,7 @@ final class EuPagoClient {
    * Phone may arrive as "351#912345678" or a bare local number.
    */
   public function createMbWay(string $internalId, float $amount, string $phone): array {
-    [$countryCode, $localPhone] = $this->splitPhone($phone);
+    $localPhone = $this->normalizePhone($phone);
     $payload = [
       'payment' => [
         'amount' => [
@@ -101,13 +103,9 @@ final class EuPagoClient {
           'value' => round($amount, 2),
         ],
         'identifier' => $internalId,
-        'countryCode' => $countryCode,
+        // EuPago expects the ISO country code (e.g. 'PT'), not the dial code.
+        'countryCode' => 'PT',
         'customerPhone' => $localPhone,
-      ],
-      'customer' => [
-        'notify' => TRUE,
-        'phone' => $localPhone,
-        'countryCode' => $countryCode,
       ],
     ];
     return $this->post('/api/v1.02/mbway/create', $payload);
@@ -136,22 +134,22 @@ final class EuPagoClient {
   }
 
   /**
-   * Splits a phone alias into [countryCode, localNumber].
+   * Normalises a phone alias into a bare 9-digit local number.
    *
-   * Accepts "351#912345678", "351912345678" or "912345678".
+   * Accepts "351#912345678", "351912345678", "+351 912345678" or "912345678".
    */
-  private function splitPhone(string $phone): array {
+  private function normalizePhone(string $phone): string {
     $phone = trim($phone);
     if (str_contains($phone, '#')) {
-      [$code, $local] = explode('#', $phone, 2);
-      return [ltrim($code, '+') ?: '351', preg_replace('/\D+/', '', $local)];
+      [, $local] = explode('#', $phone, 2);
+      $phone = $local;
     }
     $digits = preg_replace('/\D+/', '', $phone);
-    // Portuguese numbers are 9 digits; strip a leading 351 country code.
+    // Strip a leading 351 country code if present.
     if (strlen($digits) > 9 && str_starts_with($digits, '351')) {
-      return ['351', substr($digits, 3)];
+      $digits = substr($digits, 3);
     }
-    return ['351', $digits];
+    return $digits;
   }
 
   /**
@@ -238,14 +236,22 @@ final class EuPagoClient {
 
   /**
    * Normalises a v1.02 response into the field names the controller expects.
+   *
+   * Live-verified responses:
+   *   Multibanco: {transactionStatus, entity, reference, amount}
+   *   MB WAY:     {transactionStatus, transactionID, reference}
+   *   Credit Card:{transactionStatus, redirectUrl|url, transactionID}
    */
   private function normalizeResponse(array $data): array {
-    $reference = $data['reference'] ?? [];
+    // `reference` is a plain string on Multibanco; guard against array access.
+    $referenceObj = is_array($data['reference'] ?? NULL) ? $data['reference'] : [];
+    $referenceScalar = is_string($data['reference'] ?? NULL) ? $data['reference'] : NULL;
     return $data + [
-      'entidade' => $reference['entity'] ?? $data['entidade'] ?? NULL,
-      'referencia' => $reference['reference'] ?? $data['referencia'] ?? NULL,
-      'url' => $data['redirectUrl'] ?? $data['url'] ?? NULL,
-      'per_dup' => $reference['expirationDate'] ?? $data['expirationDate'] ?? $data['per_dup'] ?? NULL,
+      'entidade' => $data['entity'] ?? $referenceObj['entity'] ?? $data['entidade'] ?? NULL,
+      'referencia' => $referenceScalar ?? $referenceObj['reference'] ?? $data['referencia'] ?? NULL,
+      'url' => $data['redirectUrl'] ?? (is_string($data['url'] ?? NULL) ? $data['url'] : NULL),
+      'per_dup' => $referenceObj['expirationDate'] ?? $data['expirationDate'] ?? $data['data_fim'] ?? NULL,
+      'transaction_id' => $data['transactionID'] ?? NULL,
       'resposta' => $data['transactionStatus'] ?? $data['resposta'] ?? NULL,
     ];
   }
