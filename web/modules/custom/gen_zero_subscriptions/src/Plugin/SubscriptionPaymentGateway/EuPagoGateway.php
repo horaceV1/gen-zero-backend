@@ -86,11 +86,11 @@ class EuPagoGateway extends SubscriptionPaymentGatewayBase {
       $body = $request->request->all();
     }
 
-    $transactionId = $body['transacao'] ?? $body['transaction'] ?? '';
+    $transactionId = $body['transacao'] ?? $body['transaction'] ?? $body['transactionID'] ?? '';
     $reference = $body['referencia'] ?? $body['reference'] ?? '';
     $value = $body['valor'] ?? $body['value'] ?? '';
     $internalId = $body['identificador'] ?? $body['identifier'] ?? '';
-    $paymentStatus = $body['estado'] ?? $body['status'] ?? '';
+    $paymentStatus = strtolower((string) ($body['estado'] ?? $body['status'] ?? $body['transactionStatus'] ?? ''));
 
     $this->logger->info('EuPago webhook: ref=@ref, id=@id, status=@status, value=@val', [
       '@ref' => $reference,
@@ -100,7 +100,7 @@ class EuPagoGateway extends SubscriptionPaymentGatewayBase {
     ]);
 
     // EuPago uses "pago" (paid) as the success status.
-    if (!in_array($paymentStatus, ['pago', 'paid', 'confirmed'], TRUE)) {
+    if (!in_array($paymentStatus, ['pago', 'paid', 'confirmed', 'success', 'sucesso'], TRUE)) {
       return [
         'success' => FALSE,
         'external_id' => $internalId,
@@ -121,31 +121,32 @@ class EuPagoGateway extends SubscriptionPaymentGatewayBase {
    */
   protected function createMultibancoPayment(array $config, SubscriptionTierInterface $tier, string $internalId, float $amount): array {
     $baseUrl = $this->getApiBaseUrl($config);
-    $payload = [
-      'chave' => $config['api_key'],
-      'valor' => number_format($amount, 2, '.', ''),
-      'id' => $internalId,
+    $payment = [
+      'amount' => ['currency' => 'EUR', 'value' => round($amount, 2)],
+      'identifier' => $internalId,
     ];
 
-    // Add per_dup (deadline days) if configured.
+    // Add expiration date (deadline days) if configured.
     if (!empty($config['multibanco_deadline_days'])) {
-      $payload['per_dup'] = date('Y-m-d', strtotime('+' . (int) $config['multibanco_deadline_days'] . ' days'));
+      $payment['expirationDate'] = date('Y-m-d', strtotime('+' . (int) $config['multibanco_deadline_days'] . ' days'));
     }
 
     try {
-      $response = $this->httpClient->request('POST', $baseUrl . '/clientes/rest_api/multibanco/create', [
-        'json' => $payload,
-        'headers' => ['Accept' => 'application/json'],
+      $response = $this->httpClient->request('POST', $baseUrl . '/api/v1.02/multibanco/create', [
+        'json' => ['payment' => $payment],
+        'headers' => $this->apiHeaders($config),
+        'http_errors' => FALSE,
       ]);
 
-      $data = json_decode((string) $response->getBody(), TRUE);
+      $data = json_decode((string) $response->getBody(), TRUE) ?: [];
 
-      if (empty($data['sucesso']) || $data['sucesso'] !== TRUE) {
-        $errorMsg = $data['resposta'] ?? 'Unknown error';
+      if (!$this->isSuccess($data)) {
+        $errorMsg = $data['text'] ?? $data['message'] ?? $data['resposta'] ?? 'Unknown error';
         $this->logger->error('EuPago Multibanco failed: @msg', ['@msg' => $errorMsg]);
         return ['success' => FALSE, 'message' => 'Could not generate Multibanco reference.'];
       }
 
+      $reference = $data['reference'] ?? [];
       return [
         'success' => TRUE,
         'subscription_id' => $internalId,
@@ -153,11 +154,11 @@ class EuPagoGateway extends SubscriptionPaymentGatewayBase {
         'initial_status' => 'pending',
         'data' => [
           'payment_method' => 'multibanco',
-          'entity' => $data['entidade'] ?? '',
-          'reference' => $data['referencia'] ?? '',
+          'entity' => $reference['entity'] ?? $data['entidade'] ?? '',
+          'reference' => $reference['reference'] ?? $data['referencia'] ?? '',
           'amount' => $amount,
           'currency' => $tier->getCurrency(),
-          'deadline' => $data['per_dup'] ?? NULL,
+          'deadline' => $reference['expirationDate'] ?? $payment['expirationDate'] ?? NULL,
         ],
       ];
     }
@@ -176,28 +177,32 @@ class EuPagoGateway extends SubscriptionPaymentGatewayBase {
     }
 
     $baseUrl = $this->getApiBaseUrl($config);
+    [$countryCode, $localPhone] = $this->splitPhone((string) $payment_data['phone']);
     $payload = [
-      'chave' => $config['api_key'],
-      'valor' => number_format($amount, 2, '.', ''),
-      'id' => $internalId,
-      'alias' => $payment_data['phone'],
+      'payment' => [
+        'amount' => ['currency' => 'EUR', 'value' => round($amount, 2)],
+        'identifier' => $internalId,
+        'countryCode' => $countryCode,
+        'customerPhone' => $localPhone,
+      ],
+      'customer' => [
+        'notify' => TRUE,
+        'phone' => $localPhone,
+        'countryCode' => $countryCode,
+      ],
     ];
 
-    // Channel overlay if configured.
-    if (!empty($config['channel'])) {
-      $payload['canal'] = $config['channel'];
-    }
-
     try {
-      $response = $this->httpClient->request('POST', $baseUrl . '/clientes/rest_api/mbway/create', [
+      $response = $this->httpClient->request('POST', $baseUrl . '/api/v1.02/mbway/create', [
         'json' => $payload,
-        'headers' => ['Accept' => 'application/json'],
+        'headers' => $this->apiHeaders($config),
+        'http_errors' => FALSE,
       ]);
 
-      $data = json_decode((string) $response->getBody(), TRUE);
+      $data = json_decode((string) $response->getBody(), TRUE) ?: [];
 
-      if (empty($data['sucesso']) || $data['sucesso'] !== TRUE) {
-        $errorMsg = $data['resposta'] ?? 'Unknown error';
+      if (!$this->isSuccess($data)) {
+        $errorMsg = $data['text'] ?? $data['message'] ?? $data['resposta'] ?? 'Unknown error';
         $this->logger->error('EuPago MB WAY failed: @msg', ['@msg' => $errorMsg]);
         return ['success' => FALSE, 'message' => 'Could not initiate MB WAY payment.'];
       }
@@ -209,7 +214,7 @@ class EuPagoGateway extends SubscriptionPaymentGatewayBase {
         'initial_status' => 'pending',
         'data' => [
           'payment_method' => 'mbway',
-          'reference' => $data['referencia'] ?? '',
+          'reference' => $data['transactionID'] ?? $data['referencia'] ?? '',
           'amount' => $amount,
           'currency' => $tier->getCurrency(),
         ],
@@ -228,35 +233,39 @@ class EuPagoGateway extends SubscriptionPaymentGatewayBase {
     $baseUrl = $this->getApiBaseUrl($config);
     $returnUrl = $config['return_url'] ?? '';
 
-    $payload = [
-      'chave' => $config['api_key'],
-      'valor' => number_format($amount, 2, '.', ''),
-      'id' => $internalId,
+    $payment = [
+      'amount' => ['currency' => 'EUR', 'value' => round($amount, 2)],
+      'identifier' => $internalId,
+      'lang' => 'PT',
     ];
 
     if (!empty($returnUrl)) {
-      $payload['url_retorno'] = $returnUrl;
+      $payment['successUrl'] = $returnUrl;
+      $payment['failUrl'] = $returnUrl;
+      $payment['backUrl'] = $returnUrl;
     }
 
+    $payload = ['payment' => $payment];
     if ($email) {
-      $payload['email'] = $email;
+      $payload['customer'] = ['email' => $email, 'notify' => TRUE];
     }
 
     try {
-      $response = $this->httpClient->request('POST', $baseUrl . '/clientes/rest_api/cc/create', [
+      $response = $this->httpClient->request('POST', $baseUrl . '/api/v1.02/creditcard/create', [
         'json' => $payload,
-        'headers' => ['Accept' => 'application/json'],
+        'headers' => $this->apiHeaders($config),
+        'http_errors' => FALSE,
       ]);
 
-      $data = json_decode((string) $response->getBody(), TRUE);
+      $data = json_decode((string) $response->getBody(), TRUE) ?: [];
 
-      if (empty($data['sucesso']) || $data['sucesso'] !== TRUE) {
-        $errorMsg = $data['resposta'] ?? 'Unknown error';
+      if (!$this->isSuccess($data)) {
+        $errorMsg = $data['text'] ?? $data['message'] ?? $data['resposta'] ?? 'Unknown error';
         $this->logger->error('EuPago CC failed: @msg', ['@msg' => $errorMsg]);
         return ['success' => FALSE, 'message' => 'Could not initiate credit card payment.'];
       }
 
-      $redirectUrl = $data['url'] ?? '';
+      $redirectUrl = $data['redirectUrl'] ?? $data['url'] ?? '';
       if (empty($redirectUrl)) {
         return ['success' => FALSE, 'message' => 'EuPago did not return a payment URL.'];
       }
@@ -284,10 +293,50 @@ class EuPagoGateway extends SubscriptionPaymentGatewayBase {
    * Returns the EuPago API base URL based on mode.
    */
   protected function getApiBaseUrl(array $config): string {
-    $mode = $config['mode'] ?? 'demo';
+    $mode = $config['mode'] ?? 'sandbox';
     return $mode === 'live'
-      ? 'https://seguro.eupago.pt'
+      ? 'https://clientes.eupago.pt'
       : 'https://sandbox.eupago.pt';
+  }
+
+  /**
+   * Builds the request headers, including ApiKey header authentication.
+   */
+  protected function apiHeaders(array $config): array {
+    return [
+      'Accept' => 'application/json',
+      'Content-Type' => 'application/json',
+      'Authorization' => 'ApiKey ' . trim((string) ($config['api_key'] ?? '')),
+    ];
+  }
+
+  /**
+   * Determines whether an EuPago v1.02 response indicates success.
+   */
+  protected function isSuccess(array $data): bool {
+    $status = strtolower((string) ($data['transactionStatus'] ?? ''));
+    return $status === 'success'
+      // Backwards-compatible with legacy body-auth responses.
+      || ($data['sucesso'] ?? FALSE) === TRUE
+      || (string) ($data['estado'] ?? '') === '0';
+  }
+
+  /**
+   * Splits a phone alias into [countryCode, localNumber].
+   *
+   * Accepts "351#912345678", "351912345678" or "912345678".
+   */
+  protected function splitPhone(string $phone): array {
+    $phone = trim($phone);
+    if (str_contains($phone, '#')) {
+      [$code, $local] = explode('#', $phone, 2);
+      return [ltrim($code, '+') ?: '351', preg_replace('/\D+/', '', $local)];
+    }
+    $digits = preg_replace('/\D+/', '', $phone);
+    if (strlen($digits) > 9 && str_starts_with($digits, '351')) {
+      return ['351', substr($digits, 3)];
+    }
+    return ['351', $digits];
   }
 
 }

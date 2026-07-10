@@ -163,7 +163,7 @@ final class EuPagoController extends ControllerBase {
     $reference = (string) ($body['referencia'] ?? $body['reference'] ?? '');
     $entity = (string) ($body['entidade'] ?? $body['entity'] ?? '');
     $value = (string) ($body['valor'] ?? $body['value'] ?? '0');
-    $status = (string) ($body['estado'] ?? $body['status'] ?? 'pago');
+    $status = (string) ($body['estado'] ?? $body['status'] ?? $body['transactionStatus'] ?? 'pago');
 
     $this->logger->info('EuPago notify: id=@id ref=@ref status=@status val=@val', [
       '@id' => $internalId, '@ref' => $reference, '@status' => $status, '@val' => $value,
@@ -180,7 +180,7 @@ final class EuPagoController extends ControllerBase {
       return new JsonResponse(['success' => FALSE, 'message' => 'Order not found.'], 404);
     }
 
-    if (!in_array(strtolower($status), ['pago', 'paid', 'confirmed', '0', 'sucesso'], TRUE)) {
+    if (!in_array(strtolower($status), ['pago', 'paid', 'confirmed', '0', 'sucesso', 'success'], TRUE)) {
       // Update tracking but don't place the order.
       $data = (array) ($order->getData('eupago') ?? []);
       $data['status'] = $status;

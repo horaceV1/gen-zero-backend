@@ -10,15 +10,19 @@ use GuzzleHttp\Exception\GuzzleException;
 use Psr\Log\LoggerInterface;
 
 /**
- * Thin wrapper around the EuPago REST API.
+ * Thin wrapper around the EuPago REST API (ApiKey auth, v1.02).
  *
- * Endpoints used (REST API v1.02):
- *   - /clientes/rest_api/multibanco/create
- *   - /clientes/rest_api/mbway/create
- *   - /clientes/rest_api/cc/create
- *   - /clientes/rest_api/multibanco/info  (status lookup)
+ * Endpoints used:
+ *   - /api/v1.02/multibanco/create
+ *   - /api/v1.02/mbway/create
+ *   - /api/v1.02/creditcard/create
  *
- * The EuPago key (`chave`) is read from config `gen_zero_eupago.settings`.
+ * Authentication: the EuPago channel API key is sent in the request header
+ * as `Authorization: ApiKey xxxx-xxxx-xxxx-xxxx-xxxx` (NOT as a `chave` body
+ * parameter — that is the deprecated body-auth API and rejects channel keys
+ * with an "invalid API key" error).
+ *
+ * The API key is read from config `gen_zero_eupago.settings`.
  */
 final class EuPagoClient {
 
@@ -70,78 +74,110 @@ final class EuPagoClient {
    */
   public function createMultibanco(string $internalId, float $amount): array {
     $settings = $this->getSettings();
-    $payload = [
-      'chave' => $settings['api_key'],
-      'valor' => number_format($amount, 2, '.', ''),
-      'id' => $internalId,
+    $payment = [
+      'amount' => [
+        'currency' => 'EUR',
+        'value' => round($amount, 2),
+      ],
+      'identifier' => $internalId,
     ];
-    if ($settings['channel'] !== '') {
-      $payload['canal'] = $settings['channel'];
-    }
     if ($settings['multibanco_deadline_days'] > 0) {
-      $payload['per_dup'] = date('Y-m-d', strtotime('+' . $settings['multibanco_deadline_days'] . ' days'));
+      $payment['expirationDate'] = date('Y-m-d', strtotime('+' . $settings['multibanco_deadline_days'] . ' days'));
     }
-    return $this->post('/clientes/rest_api/multibanco/create', $payload);
+    return $this->post('/api/v1.02/multibanco/create', ['payment' => $payment]);
   }
 
   /**
    * Creates an MB WAY payment request to the supplied phone alias.
    *
-   * Phone format: "351#912345678".
+   * Phone may arrive as "351#912345678" or a bare local number.
    */
   public function createMbWay(string $internalId, float $amount, string $phone): array {
-    $settings = $this->getSettings();
+    [$countryCode, $localPhone] = $this->splitPhone($phone);
     $payload = [
-      'chave' => $settings['api_key'],
-      'valor' => number_format($amount, 2, '.', ''),
-      'id' => $internalId,
-      'alias' => $phone,
+      'payment' => [
+        'amount' => [
+          'currency' => 'EUR',
+          'value' => round($amount, 2),
+        ],
+        'identifier' => $internalId,
+        'countryCode' => $countryCode,
+        'customerPhone' => $localPhone,
+      ],
+      'customer' => [
+        'notify' => TRUE,
+        'phone' => $localPhone,
+        'countryCode' => $countryCode,
+      ],
     ];
-    if ($settings['channel'] !== '') {
-      $payload['canal'] = $settings['channel'];
-    }
-    return $this->post('/clientes/rest_api/mbway/create', $payload);
+    return $this->post('/api/v1.02/mbway/create', $payload);
   }
 
   /**
    * Creates a credit-card payment URL (offsite redirect).
    */
   public function createCreditCard(string $internalId, float $amount, ?string $email, string $returnUrl): array {
-    $settings = $this->getSettings();
-    $payload = [
-      'chave' => $settings['api_key'],
-      'valor' => number_format($amount, 2, '.', ''),
-      'id' => $internalId,
-      'url_retorno' => $returnUrl,
+    $payment = [
+      'amount' => [
+        'currency' => 'EUR',
+        'value' => round($amount, 2),
+      ],
+      'identifier' => $internalId,
+      'successUrl' => $returnUrl,
+      'failUrl' => $returnUrl,
+      'backUrl' => $returnUrl,
+      'lang' => 'PT',
     ];
+    $payload = ['payment' => $payment];
     if ($email) {
-      $payload['email'] = $email;
+      $payload['customer'] = ['email' => $email, 'notify' => TRUE];
     }
-    if ($settings['channel'] !== '') {
-      $payload['canal'] = $settings['channel'];
+    return $this->post('/api/v1.02/creditcard/create', $payload);
+  }
+
+  /**
+   * Splits a phone alias into [countryCode, localNumber].
+   *
+   * Accepts "351#912345678", "351912345678" or "912345678".
+   */
+  private function splitPhone(string $phone): array {
+    $phone = trim($phone);
+    if (str_contains($phone, '#')) {
+      [$code, $local] = explode('#', $phone, 2);
+      return [ltrim($code, '+') ?: '351', preg_replace('/\D+/', '', $local)];
     }
-    return $this->post('/clientes/rest_api/cc/create', $payload);
+    $digits = preg_replace('/\D+/', '', $phone);
+    // Portuguese numbers are 9 digits; strip a leading 351 country code.
+    if (strlen($digits) > 9 && str_starts_with($digits, '351')) {
+      return ['351', substr($digits, 3)];
+    }
+    return ['351', $digits];
   }
 
   /**
    * Looks up the status of a Multibanco reference.
    */
   public function lookupMultibanco(string $entity, string $reference, float $amount): array {
-    $settings = $this->getSettings();
     $payload = [
-      'chave' => $settings['api_key'],
-      'entidade' => $entity,
-      'referencia' => $reference,
-      'valor' => number_format($amount, 2, '.', ''),
+      'reference' => [
+        'entity' => $entity,
+        'reference' => $reference,
+        'amount' => ['currency' => 'EUR', 'value' => round($amount, 2)],
+      ],
     ];
-    return $this->post('/clientes/rest_api/multibanco/info', $payload);
+    return $this->post('/api/v1.02/reference/info', $payload);
   }
 
   /**
    * Internal POST helper.
+   *
+   * Sends the request with ApiKey header authentication and normalises the
+   * EuPago v1.02 response into the legacy field names consumed by the
+   * controller (`entidade`, `referencia`, `url`, `resposta`).
    */
   private function post(string $path, array $payload): array {
-    if (empty($payload['chave'])) {
+    $apiKey = trim((string) $this->getSettings()['api_key']);
+    if ($apiKey === '') {
       return ['success' => FALSE, 'message' => 'EuPago API key is not configured.'];
     }
 
@@ -152,29 +188,45 @@ final class EuPagoClient {
         'headers' => [
           'Accept' => 'application/json',
           'Content-Type' => 'application/json',
+          'Authorization' => 'ApiKey ' . $apiKey,
         ],
         'timeout' => 20,
+        // Do not throw on 4xx so we can surface EuPago's error message.
+        'http_errors' => FALSE,
       ]);
 
+      $statusCode = $response->getStatusCode();
       $body = (string) $response->getBody();
       $data = json_decode($body, TRUE);
       if (!is_array($data)) {
-        $this->logger->error('EuPago: invalid JSON response from @url: @body', [
-          '@url' => $url, '@body' => mb_substr($body, 0, 500),
+        $this->logger->error('EuPago: invalid JSON response (HTTP @code) from @url: @body', [
+          '@code' => $statusCode, '@url' => $url, '@body' => mb_substr($body, 0, 500),
         ]);
         return ['success' => FALSE, 'message' => 'Invalid response from EuPago.'];
       }
 
-      $ok = ($data['sucesso'] ?? FALSE) === TRUE || ($data['estado'] ?? '') === '0';
+      $transactionStatus = strtolower((string) ($data['transactionStatus'] ?? ''));
+      $ok = $statusCode >= 200 && $statusCode < 300
+        && (
+          $transactionStatus === 'success'
+          // Backwards-compatible with legacy body-auth responses.
+          || ($data['sucesso'] ?? FALSE) === TRUE
+          || (string) ($data['estado'] ?? '') === '0'
+        );
+
       if (!$ok) {
-        $msg = $data['resposta'] ?? ($data['message'] ?? 'EuPago returned an error.');
-        $this->logger->warning('EuPago error on @path: @msg | @raw', [
-          '@path' => $path, '@msg' => $msg, '@raw' => $body,
+        $msg = $data['text']
+          ?? $data['reason']
+          ?? $data['message']
+          ?? $data['resposta']
+          ?? 'EuPago returned an error.';
+        $this->logger->warning('EuPago error on @path (HTTP @code): @msg | @raw', [
+          '@path' => $path, '@code' => $statusCode, '@msg' => $msg, '@raw' => $body,
         ]);
         return ['success' => FALSE, 'message' => $msg, 'raw' => $data];
       }
 
-      return ['success' => TRUE, 'raw' => $data];
+      return ['success' => TRUE, 'raw' => $this->normalizeResponse($data)];
     }
     catch (GuzzleException $e) {
       $this->logger->error('EuPago request to @url failed: @msg', [
@@ -182,6 +234,20 @@ final class EuPagoClient {
       ]);
       return ['success' => FALSE, 'message' => 'Unable to reach EuPago: ' . $e->getMessage()];
     }
+  }
+
+  /**
+   * Normalises a v1.02 response into the field names the controller expects.
+   */
+  private function normalizeResponse(array $data): array {
+    $reference = $data['reference'] ?? [];
+    return $data + [
+      'entidade' => $reference['entity'] ?? $data['entidade'] ?? NULL,
+      'referencia' => $reference['reference'] ?? $data['referencia'] ?? NULL,
+      'url' => $data['redirectUrl'] ?? $data['url'] ?? NULL,
+      'per_dup' => $reference['expirationDate'] ?? $data['expirationDate'] ?? $data['per_dup'] ?? NULL,
+      'resposta' => $data['transactionStatus'] ?? $data['resposta'] ?? NULL,
+    ];
   }
 
 }
